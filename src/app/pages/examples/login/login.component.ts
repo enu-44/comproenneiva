@@ -15,6 +15,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   olvidarContrasena() {
-    this.router.navigate(['/recuperar-contrasena'])
+    this.router.navigateByUrl('/examples/recuperar-contrasena')
+    // this.router.navigate(['/examples/recuperar-contrasena'])
+  }
+
+  registrarCuenta() {
+    this.router.navigate(['/examples/registro'])
   }
 }
