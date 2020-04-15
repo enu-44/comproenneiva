@@ -31,4 +31,8 @@ export class NegocioFormComponent implements OnInit {
     });
   }
 
+  onSliderChange(selectedValues: number[]) {
+    console.log('VALOR: ', selectedValues);
+  }
+
 }

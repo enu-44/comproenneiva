@@ -45,24 +45,23 @@
                 <div class=" card-header">
                 </div>
                 <div class=" card-body">
-                  TABS
                   <mat-tab-group>
-                    <mat-tab label="First"> Content 1 </mat-tab>
-                    <mat-tab label="Second"> Content 2 </mat-tab>
-                    <mat-tab label="Third"> Content 3 </mat-tab>
+                    <mat-tab label="Información básica"> Content 1 </mat-tab>
+                    <mat-tab label="Horarios de atención"> 
+                      <div class="w-50 mt-6">
+                        <npn-slider [min]="1000" [max]="5000"
+                        [minSelected]="2000" [maxSelected]="4000"
+                        [step]="500"
+                        [showStepIndicator]="true">
+                        </npn-slider>
+                      </div>
+                    </mat-tab>
                   </mat-tab-group>
-
-                  <form>
-                    <div class=" row">
-                      <div class=" col-md-6">
-                        <div class=" form-group" [ngClass]="{ focused: focus === true }">
-                          <div class=" input-group input-group-merge">
-                            <div class=" input-group-prepend">
-                              <span class=" input-group-text">
-                                <i class="fas fa-briefcase"></i>
-                              </span>
-                            </div>
-                            
+                  <!-- <ngb-tabset [destroyOnHide]="false">
+                    <ngb-tab title="Información básica">
+                      <ng-template ngbTabContent><br>
+                        <form>
+                          <div class=" row">
                             <div class=" col-md-6">
                               <div class=" form-group" [ngClass]="{ focused: focus === true }">
                                 <div class=" input-group input-group-merge">
@@ -341,7 +340,7 @@
                         sint qui sapiente accusamus tattooed echo park.</p>
                       </ng-template>
                     </ngb-tab>
-                  </ngb-tabset>
+                  </ngb-tabset> -->
                 </div>
           </div>
         </div>
