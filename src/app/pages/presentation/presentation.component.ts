@@ -13,7 +13,7 @@ export class PresentationComponent implements OnInit {
   ngOnInit() {}
 
   // google maps zoom level
-  zoom: number = 8;
+  zoom: number = 17;
   
   // initial center position for the map
   lat: number = 51.673858;
