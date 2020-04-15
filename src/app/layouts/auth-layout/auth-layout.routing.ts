@@ -5,6 +5,8 @@ import { PricingComponent } from "../../pages/examples/pricing/pricing.component
 import { LockComponent } from "../../pages/examples/lock/lock.component";
 import { RegisterComponent } from "../../pages/examples/register/register.component";
 import { PresentationComponent } from "../../pages/presentation/presentation.component";
+import { ConfirmacionComponent } from '../../pages/examples/confirmacion/confirmacion.component';
+import { RecuperarContrasenaComponent } from '../../pages/examples/recuperar-contrasena/recuperar-contrasena.component';
 
 export const AuthLayoutRoutes: Routes = [
   {
@@ -13,6 +15,24 @@ export const AuthLayoutRoutes: Routes = [
       {
         path: "login",
         component: LoginComponent
+      }
+    ]
+  },
+  {
+    path: "",
+    children: [
+      {
+        path: "confirmacion/:id",
+        component: ConfirmacionComponent
+      }
+    ]
+  },
+  {
+    path: "",
+    children: [
+      {
+        path: "recuperar-contrasena",
+        component: RecuperarContrasenaComponent
       }
     ]
   },

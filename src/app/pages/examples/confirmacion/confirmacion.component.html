@@ -1,0 +1,89 @@
+<div class=" main-content">
+    <div class=" header bg-gradient-danger py-7 py-lg-8 pt-lg-9">
+  
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg
+          x="0"
+          y="0"
+          viewBox="0 0 2560 100"
+          preserveAspectRatio="none"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+  
+    <div class=" container mt--8 pb-5">
+      <div class=" row justify-content-center">
+        <div class="col-md-9">
+          <div class=" card bg-secondary border-0 mb-0">
+
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="pb-4">
+                <label> Su cuenta ha sido validad éxitosamente, asigne una contraseña</label>
+              </div>
+
+              <form role="form">
+                <div class="row">
+                  <div class="form-group col-6" [ngClass]="{ focused: focus1 === true }">
+                    <!-- CONTRASEÑA INICIAL -->
+                    <label for="password">Contraseña</label>
+                    <div class="input-group input-group-alternative">
+                      <input
+                        id="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Contraseña"
+                        [type]="verPass ? 'text' : 'password'"
+                        (focus)="focus1 = true"
+                        (blur)="focus1 = false"
+                      />
+                      <div class="input-group-prepend">
+                        <a class="input-group-text" href="javascript:void(0)" style="color: #172b4d !important" (click)="verPass = !verPass">
+                          <i [class]="verPass ? 'fas fa-eye' : 'fas fa-eye-slash' "></i>
+                        </a>
+                      </div>
+                    </div>
+                   
+                  </div>
+  
+                  <div class="form-group col-6" [ngClass]="{ focused: focus === true }">
+                     <!-- REPETIR CONTRASEÑA -->
+                    <label for="confirmpassword">Confirmar contraseña</label>
+                    <div class="input-group input-group-alternative">
+                      <input
+                        id="confirmpassword"
+                        name="confirmpassword"
+                        class="form-control"
+                        placeholder="Confirmar contraseña"
+                        [type]="verPass ? 'text' : 'password'"
+                        (focus)="focus = true"
+                        (blur)="focus = false"
+                      />
+                      <div class="input-group-prepend">
+                        <a class="input-group-text" href="javascript:void(0)" style="color: #172b4d !important" (click)="verPass = !verPass">
+                          <i [class]="verPass ? 'fas fa-eye' : 'fas fa-eye-slash' "></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="text-right">
+                  <button type="button" class="btn btn-primary">
+                    Guardar
+                  </button>
+                </div>
+        
+              </form>
+            </div>
+          </div>
+  
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
