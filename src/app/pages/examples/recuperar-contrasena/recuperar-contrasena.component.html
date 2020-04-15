@@ -1,0 +1,72 @@
+<div class=" main-content">
+    <div class=" header bg-gradient-danger py-7 py-lg-8 pt-lg-9">
+  
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg
+          x="0"
+          y="0"
+          viewBox="0 0 2560 100"
+          preserveAspectRatio="none"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+  
+    <div class=" container mt--8 pb-5">
+      <div class=" row justify-content-center">
+        <div class="col-md-9">
+          <div class=" card bg-secondary border-0 mb-0">
+            <div class="card-header text-center">
+                <h2> ¿OLVIDASTE TU CONTRASEÑA? </h2>
+                <div>
+                    Ingresa el correo electrónico que utilizaste para registrarte.
+                    Recibirás un correo electrónico con instrucciones sobre como 
+                    reestablecer tu contraseña.
+                </div>
+            </div>
+            <div class="card-body px-lg-5 py-lg-5">
+
+              <form role="form">
+                <div class="row">
+                  <div class="form-group col-12" [ngClass]="{ focused: focus1 === true }">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      </div>
+                      <input
+                        class="form-control"
+                        placeholder="Email"
+                        type="email"
+                        (focus)="focus = true"
+                        (blur)="focus = false"
+                      />
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="text-right w-100">
+                  <button type="button" class="btn btn-primary w-100">
+                    Enviar correo electrónico
+                  </button>
+                </div>
+
+                <div class="text-center w-100 mt-3">
+                  ¿Recuerdas tu contraseña? 
+                  <a class="btn btn-outline-dark ml-2" href="javascript:void(0)" style="border: none;" (click)="iniciarSesion()">
+                    <strong> Inicia sesión </strong>
+                  </a>
+                </div>
+        
+              </form>
+            </div>
+          </div>
+  
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
