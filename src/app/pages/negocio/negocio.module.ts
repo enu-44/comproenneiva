@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NegocioFormComponent } from './negocio-form/negocio-form.component';
 import { RouterModule } from "@angular/router";
 import { NegocioRoutes } from "./negocio.routing";
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
