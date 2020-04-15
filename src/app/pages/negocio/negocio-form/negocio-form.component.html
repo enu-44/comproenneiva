@@ -1,0 +1,320 @@
+<!-- <div class=" header bg-danger pb-6">
+    <div class=" container-fluid">
+      <div class=" header-body">
+        <div class=" row align-items-center py-4">
+          <div class=" col-lg-6 col-7">
+            <h6 class=" h2 text-white d-inline-block mb-0">Form elements</h6>
+  
+            <nav
+              aria-label="breadcrumb"
+              class=" d-none d-md-inline-block ml-md-4"
+            >
+              <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                </li>
+  
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> Forms </a>
+                </li>
+  
+                <li aria-current="page" class=" breadcrumb-item active">
+                  Form elements
+                </li>
+              </ol>
+            </nav>
+          </div>
+  
+          <div class=" col-lg-6 col-5 text-right">
+            <a class=" btn btn-sm btn-neutral" href="javascript:void(0)"> New </a>
+  
+            <a class=" btn btn-sm btn-neutral" href="javascript:void(0)">
+              Filters
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class=" container-fluid" style="margin-top: 30px;">
+    <div class=" row">
+      <div class=" col-lg-12">
+        <div class=" card-wrapper">
+          <div class=" card">
+                <div class=" card-header">
+                </div>
+                <div class=" card-body">
+                  <form>
+                    <div class=" row">
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus === true }">
+                          <div class=" input-group input-group-merge">
+                            <div class=" input-group-prepend">
+                              <span class=" input-group-text">
+                                <i class="fas fa-briefcase"></i>
+                              </span>
+                            </div>
+  
+                            <input class=" form-control" placeholder="Nombre del establecimiento" type="text"
+                              (focus)="focus = true" (blur)="focus = false" />
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus1 === true }">
+  
+                          <select class=" form-control" data-toggle="select">
+                            <option value="alerts"> Seleccione tipo de establecimiento </option>
+  
+                            <option value="badges"> Badges </option>
+  
+                            <option value="buttons"> Buttons </option>
+  
+                            <option value="cards"> Cards </option>
+  
+                            <option value="forms"> Forms </option>
+  
+                            <option value="modals"> Modals </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class=" row">
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus2 === true }">
+  
+                          <select class=" form-control" data-toggle="select">
+                            <option value="alerts"> Seleccione tipo de documento </option>
+  
+                            <option value="badges"> Badges </option>
+  
+                            <option value="buttons"> Buttons </option>
+  
+                            <option value="cards"> Cards </option>
+  
+                            <option value="forms"> Forms </option>
+  
+                            <option value="modals"> Modals </option>
+                          </select>
+                        </div>
+                      </div>
+  
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus3 === true }">
+                          <div class=" input-group input-group-merge">
+                            <div class=" input-group-prepend">
+                              <span class=" input-group-text">
+                                <i class="fas fa-id-card"></i>
+                              </span>
+                            </div>
+  
+                            <input class=" form-control" placeholder="Número de identificación" type="text"
+                              (focus)="focus3 = true" (blur)="focus3 = false" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class=" row">
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus4 === true }">
+                          <div class=" input-group input-group-merge">
+                            <div class=" input-group-prepend">
+                              <span class=" input-group-text">
+                                <i class="fas fa-id-card"></i>
+                              </span>
+                            </div>
+  
+                            <input class=" form-control" placeholder="Primer Nombre" type="text" (focus)="focus4 = true"
+                              (blur)="focus4 = false" />
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus5 === true }">
+                          <div class=" input-group input-group-merge">
+                            <div class=" input-group-prepend">
+                              <span class=" input-group-text">
+                                <i class="fas fa-id-card"></i>
+                              </span>
+                            </div>
+  
+                            <input class=" form-control" placeholder="Segundo Nombre" type="text" (focus)="focus5 = true"
+                              (blur)="focus5 = false" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=" row">
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus6 === true }">
+                          <div class=" input-group input-group-merge">
+                            <div class=" input-group-prepend">
+                              <span class=" input-group-text">
+                                <i class="fas fa-id-card"></i>
+                              </span>
+                            </div>
+  
+                            <input class=" form-control" placeholder="Primer apellido" type="text" (focus)="focus6 = true"
+                              (blur)="focus6 = false" />
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus7 === true }">
+                          <div class=" input-group input-group-merge">
+                            <div class=" input-group-prepend">
+                              <span class=" input-group-text">
+                                <i class="fas fa-id-card"></i>
+                              </span>
+                            </div>
+  
+                            <input class=" form-control" placeholder="Segundo apellido" type="text"
+                              (focus)="focus7 = true" (blur)="focus7 = false" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=" row">
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus8 === true }">
+  
+                          <select class=" form-control" data-toggle="select">
+                            <option value="alerts"> Seleccione departamento </option>
+  
+                            <option value="badges"> Badges </option>
+  
+                            <option value="buttons"> Buttons </option>
+  
+                            <option value="cards"> Cards </option>
+  
+                            <option value="forms"> Forms </option>
+  
+                            <option value="modals"> Modals </option>
+                          </select>
+                        </div>
+                      </div>
+  
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus9 === true }">
+  
+                          <select class=" form-control" data-toggle="select">
+                            <option value="alerts"> Seleccione municipio </option>
+  
+                            <option value="badges"> Badges </option>
+  
+                            <option value="buttons"> Buttons </option>
+  
+                            <option value="cards"> Cards </option>
+  
+                            <option value="forms"> Forms </option>
+  
+                            <option value="modals"> Modals </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=" row">
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus10 === true }">
+                          <div class=" input-group input-group-merge">
+                            <div class=" input-group-prepend">
+                              <span class=" input-group-text">
+                                <i class="fas fa-map-marked-alt"></i>
+                              </span>
+                            </div>
+  
+                            <input class=" form-control" placeholder="Dirección" type="text" (focus)="focus10 = true"
+                              (blur)="focus10 = false" />
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus11 === true }">
+                          <div class=" input-group input-group-merge">
+                            <div class=" input-group-prepend">
+                              <span class=" input-group-text">
+                                <i class="fas fa-at"></i>
+                              </span>
+                            </div>
+  
+                            <input class=" form-control" placeholder="Correo electrónico" type="text"
+                              (focus)="focus11 = true" (blur)="focus11 = false" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=" row">
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus12 === true }">
+                          <div class=" input-group input-group-merge">
+                            <div class=" input-group-prepend">
+                              <span class=" input-group-text">
+                                <i class="fas fa-phone-square"></i>
+                              </span>
+                            </div>
+  
+                            <input class=" form-control" placeholder="Teléfono" type="text" (focus)="focus12 = true"
+                              (blur)="focus12 = false" />
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class=" col-md-6">
+                        <div class=" form-group" [ngClass]="{ focused: focus13 === true }">
+  
+                          <select class=" form-control" data-toggle="select">
+                            <option value="alerts"> ¿Se encuentra afiliado a cámara de comercio? </option>
+  
+                            <option value="badges"> Badges </option>
+  
+                            <option value="buttons"> Buttons </option>
+  
+                            <option value="cards"> Cards </option>
+  
+                            <option value="forms"> Forms </option>
+  
+                            <option value="modals"> Modals </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=" row">
+                      <div class=" col-md-12">
+                        <div class=" form-group" [ngClass]="{ focused: focus13 === true }">
+  
+                          <select class=" form-control" data-toggle="select">
+                            <option value="alerts"> Seleccione servicios </option>
+  
+                            <option value="badges"> Badges </option>
+  
+                            <option value="buttons"> Buttons </option>
+  
+                            <option value="cards"> Cards </option>
+  
+                            <option value="forms"> Forms </option>
+  
+                            <option value="modals"> Modals </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <button class=" btn btn-icon btn-primary" type="button" matStepperNext>
+                    <span class=" btn-inner--icon">
+                      <i class=" ni ni-bold-right"> </i>
+                    </span>
+                    <span class=" btn-inner--text"> Siguiente </span>
+                  </button>
+                </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>

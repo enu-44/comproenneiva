@@ -56,6 +56,10 @@ const routes: Routes = [
       {
         path: "examples",
         loadChildren: "./pages/examples/examples.module#ExamplesModule"
+      },
+      {
+        path: "negocio",
+        loadChildren: "./pages/negocio/negocio.module#NegocioModule"
       }
     ]
   },
