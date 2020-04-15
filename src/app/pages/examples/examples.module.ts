@@ -8,11 +8,12 @@ import { TimelineComponent } from "./timeline/timeline.component";
 
 import { RouterModule } from "@angular/router";
 import { ExamplesRoutes } from "./examples.routing";
-
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [ProfileComponent, TimelineComponent],
   imports: [
     CommonModule,
+    MatExpansionModule,
     RouterModule.forChild(ExamplesRoutes),
     ProgressbarModule.forRoot(),
     CollapseModule.forRoot()
