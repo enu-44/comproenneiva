@@ -15,7 +15,7 @@ import { PresentationModule } from "./pages/presentation/presentation.module";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -28,7 +28,8 @@ import { ComponentsModule } from "./components/components.module";
     ToastrModule.forRoot(),
     CollapseModule.forRoot(),
     TagInputModule,
-    PresentationModule
+    PresentationModule,
+    NgbModule
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   providers: [],
