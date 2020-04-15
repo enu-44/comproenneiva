@@ -59,7 +59,7 @@
           <a
             class="nav-link"
             routerLinkActive="active"
-            [routerLink]="['/examples/pricing']"
+            [routerLink]="['/negocio/components']"
           >
             <span class="nav-link-inner--text">Pricing</span>
           </a>
@@ -154,8 +154,40 @@
     </div>
   </div>
 </nav>
-<div class="main-content">
-  <!-- Header -->
+
+<h1>Angular Google Maps (AGM) Demo</h1>
+
+<agm-map 
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  [zoomControl]="false">
+
+  <agm-marker 
+      *ngFor="let m of markers; let i = index"
+      (markerClick)="clickedMarker(m.label, i)"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [label]="m.label"
+      [markerDraggable]="m.draggable"
+      (dragEnd)="markerDragEnd(m, $event)">
+      
+    <agm-info-window>
+      <strong>InfoWindow content</strong>
+    </agm-info-window>
+    
+  </agm-marker>
+  
+  <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+      [radius]="5000"
+      [fillColor]="'red'"
+      [circleDraggable]="true"
+      [editable]="true">
+  </agm-circle>
+
+</agm-map>
+<!-- <div class="main-content">
   <div class="header bg-danger pt-5 pb-7">
     <div class="container">
       <div class="header-body">
@@ -501,21 +533,16 @@
       <div class="blur--hover">
         <a [routerLink]="['/documentation/icons']">
           <div class="icons-container blur-item mt-5">
-            <!-- Center -->
             <i class="icon ni ni-diamond"></i>
-            <!-- Right 1 -->
             <i class="icon icon-sm ni ni-album-2"></i>
             <i class="icon icon-sm ni ni-app"></i>
             <i class="icon icon-sm ni ni-atom"></i>
-            <!-- Right 2 -->
             <i class="icon ni ni-bag-17"></i>
             <i class="icon ni ni-bell-55"></i>
             <i class="icon ni ni-credit-card"></i>
-            <!-- Left 1 -->
             <i class="icon icon-sm ni ni-briefcase-24"></i>
             <i class="icon icon-sm ni ni-building"></i>
             <i class="icon icon-sm ni ni-button-play"></i>
-            <!-- Left 2 -->
             <i class="icon ni ni-calendar-grid-58"></i>
             <i class="icon ni ni-camera-compact"></i>
             <i class="icon ni ni-chart-bar-32"></i>
@@ -670,7 +697,7 @@
       </div>
     </div>
   </section>
-</div>
+</div> -->
 <!-- Footer -->
 <footer class="py-5" id="footer-main">
   <div class="container">
