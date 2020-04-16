@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Selectr from "mobius1-selectr";
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-negocio-form',
@@ -10,29 +8,32 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class NegocioFormComponent implements OnInit {
 
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  selectedTab: number = 0;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
-    var selectr: any = document.getElementById("selectr");
-    var options = {};
-    var optionsMultiple = { multiple: true };
+    // var selectr: any = document.getElementById("selectr");
+    // var options = {};
+    // var optionsMultiple = { multiple: true };
     // var selectorDefault = new Selectr(selectr, options);
-    var selectrmultiple: any = document.getElementById("selectr-multiple");
+    // var selectrmultiple: any = document.getElementById("selectr-multiple");
 
     // var selectorMultiple = new Selectr(selectrmultiple, optionsMultiple);
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
+    // this.firstFormGroup = this._formBuilder.group({
+    //   firstCtrl: ['', Validators.required]
+    // });
+    // this.secondFormGroup = this._formBuilder.group({
+    //   secondCtrl: ['', Validators.required]
+    // });
   }
 
   onSliderChange(selectedValues: number[]) {
     console.log('VALOR: ', selectedValues);
+  }
+
+  selectTab(){
+    this.selectedTab=1;
   }
 
 }
