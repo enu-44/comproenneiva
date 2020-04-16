@@ -47,14 +47,81 @@
                 <div class=" card-body">
                   <mat-tab-group>
                     <mat-tab label="Información básica"> Content 1 </mat-tab>
-                    <mat-tab label="Horarios de atención"> 
-                      <div class="w-50 mt-6">
-                        <npn-slider [min]="1000" [max]="5000"
-                        [minSelected]="2000" [maxSelected]="4000"
-                        [step]="500"
-                        [showStepIndicator]="true">
-                        </npn-slider>
-                      </div>
+                    <!-- TAB HORARIOS DE ATENCIÓN -->
+                    <mat-tab label="Horarios de atención">
+                      <div class="px-2 pt-5 pb-2">
+                        <mat-accordion>
+                          <mat-expansion-panel *ngFor="let dia of dias">
+                            <!-- HEADER DEL PANEL -->
+                            <mat-expansion-panel-header>
+                              <mat-panel-title style="width: 30%;">
+                                {{ dia.nombre.toUpperCase() }}
+                              </mat-panel-title>
+                              <mat-panel-description style="width: 70%;">
+                                Horario establecido para el día {{ dia.nombre.toUpperCase() }}
+                              </mat-panel-description>
+                            </mat-expansion-panel-header>
+                        
+                            <!-- CONTENIDO DEL PANEL EXPANSIVO -->
+                            <div class="cont-control">
+                              <section class="example-section">
+                                <mat-checkbox color="primary" [(ngModel)]="dia.jornadaContinua">Jornada continua</mat-checkbox>
+                              </section>
+                              
+                              <div class="table-responsive">
+                                <table class="table table-bordered align-items-center">                    
+                                  <tbody class=" list">
+                                    <!-- Jornadas -->
+                                    <ng-container *ngIf="!dia.jornadaContinua">
+                                      <tr *ngFor="let jornada of dia.jornadas">
+                                        <th scope="row">
+                                          <div class="media align-items-center">                 
+                                            <div class="media-body row">
+                                              <span class="col-6 mb-0 text-sm">
+                                                <strong class="mr-4"> {{ jornada.jornada }} </strong>
+                                              </span>
+                                              <mat-slide-toggle color="primary" [(ngModel)]="jornada.activa"></mat-slide-toggle>
+                                            </div>
+                                          </div>
+                                        </th>
+                        
+                                        <td class=" budget">
+                                          <ngb-timepicker [(ngModel)]="jornada.horaInicio" [disabled]="!jornada.activa" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
+                                        </td>
+                                        <td class=" budget">
+                                          <ngb-timepicker [(ngModel)]="jornada.horaFin" [disabled]="!jornada.activa" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
+                                        </td>
+                                      </tr>
+                                    </ng-container>
+
+                                    <tr *ngIf="dia.jornadaContinua">
+                                      <th scope="row">
+                                        <div class="media align-items-center">                 
+                                          <div class="media-body row">
+                                            <span class="col-6 mb-0 text-sm">
+                                              <strong class="mr-4"> {{ dia.continua.jornada }} </strong>
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </th>
+                      
+                                      <td class=" budget">
+                                        <ngb-timepicker [(ngModel)]="dia.continua.horaInicio" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
+                                      </td>
+                                      <td class=" budget">
+                                        <ngb-timepicker [(ngModel)]="dia.continua.horaFin" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
+                                      </td>
+                                    </tr>
+                          
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            
+                          </mat-expansion-panel>
+                        </mat-accordion>
+                      </div> 
+
                     </mat-tab>
                   </mat-tab-group>
                   <!-- <ngb-tabset [destroyOnHide]="false">
