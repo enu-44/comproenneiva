@@ -35,6 +35,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
     ClipboardModule
+  ],
+  exports: [
+    NavbarComponent
   ]
 })
 export class ComponentsModule {}
