@@ -5,7 +5,12 @@
   <div class="d-flex justify-content-center w-100">
     <div class=" col-lg-5 col-md-7">
       <div class="bg-transparent mb-0">
-        <div class="px-lg-5 py-lg-5">
+        <div class="logo-login d-flex align-items-center justify-content-center">
+          <div class="img">
+            <img src="../../../../assets/img/logo.png" alt="logo">
+          </div>
+        </div>
+        <div class="px-lg-5 py-lg-2">
           <form role="form">
             <div class="form-group mb-3" [ngClass]="{ focused: focus === true }" >
               <div class="input-group input-group-alternative">
@@ -54,13 +59,13 @@
 
               <div class="col-8 text-right">
                 <a href="javascript:void(0)" style="color: #172b4d !important" [routerLink]="['/examples/recuperar-contrasena']">
-                  <small> ¿Olvidaste tu contraseña? </small>
+                  ¿Olvidaste tu contraseña?
                 </a>
               </div>
             </div>
 
             <div class="text-center w-100">
-              <button type="button" class="btn btn-primary my-4 w-100">
+              <button type="button" class="btn btn-outline-success my-4 w-100">
                 Iniciar sesión
               </button>
             </div>
@@ -72,7 +77,7 @@
         <div class="col-12 text-dark text-center">
           <span> ¿No tienes cuenta en ComproEn Neiva? </span>
           <!-- mat-button -->
-          <a href="javascript:void(0)" class="btn btn-instagram ml-3"> Registrate </a>
+          <a href="javascript:void(0)" class="btn btn-google-plus ml-3"> Registrate </a>
         </div>
       </div>
     </div>
