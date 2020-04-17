@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
+import { MapaUbicacionComponent } from '../../mapa-ubicacion/mapa-ubicacion.component'
 import { MapaUbicacionService } from '../../mapa-ubicacion/mapa-ubicacion.service';
-import { MapaUbicacionComponent } from '../../mapa-ubicacion/mapa-ubicacion.component';
 
 
 export interface DialogData {
@@ -15,15 +15,14 @@ interface Opciones {
 }
 
 @Component({
-  selector: 'negocio-form',
-  templateUrl: './negocio-form.component.html',
-  styleUrls: ['./negocio-form.component.scss']
+  selector: 'app-registro-comprador-form',
+  templateUrl: './registro-comprador-form.component.html',
+  styleUrls: ['./registro-comprador-form.component.scss']
 })
-export class NegocioFormComponent implements OnInit {
-  isLinear = false;
-  selectedTab: number = 0;
+export class RegistroCompradorFormComponent implements OnInit {
+  animal: string;
+  name: string;
   coords: any = '0 - 0';
-
   opt: Opciones[] = [
     {value: 1, text: 'Opción 1'},
     {value: 2, text: 'Opción 2'},
@@ -32,19 +31,13 @@ export class NegocioFormComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public serviceUbicacion: MapaUbicacionService) { }
 
-  ngOnInit() { }
-
-  onSliderChange(selectedValues: number[]) {
-    console.log('VALOR: ', selectedValues);
+  ngOnInit() {
   }
-
-  selectTab(){
-    this.selectedTab=1;
-  }
-
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(MapaUbicacionComponent, {
-      width: '800px'
+      width: '800px',
+      data: {name: this.name, animal: this.animal}
     });
 
     this.serviceUbicacion.puntoSeleccionado.subscribe((value:any)=> {

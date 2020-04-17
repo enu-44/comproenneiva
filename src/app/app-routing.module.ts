@@ -60,6 +60,10 @@ const routes: Routes = [
       {
         path: "negocio",
         loadChildren: "./pages/negocio/negocio.module#NegocioModule"
+      },
+      {
+        path: "comprador",
+        loadChildren: "./pages/registro-comprador/registro-comprador.module#RegistroCompradorModule"
       }
     ]
   },

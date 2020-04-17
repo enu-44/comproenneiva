@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
 import { NegocioFormComponent } from './negocio-form/negocio-form.component';
+import { NegocioComponent } from './negocio.component';
 
 
 export const NegocioRoutes: Routes = [
@@ -8,7 +9,7 @@ export const NegocioRoutes: Routes = [
         children: [
           {
             path: "components",
-            component: NegocioFormComponent
+            component: NegocioComponent
           }
         ]
     },

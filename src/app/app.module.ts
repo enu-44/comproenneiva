@@ -16,6 +16,9 @@ import { PresentationModule } from "./pages/presentation/presentation.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MapaUbicacionComponent } from './pages/mapa-ubicacion/mapa-ubicacion.component';
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -29,9 +32,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CollapseModule.forRoot(),
     TagInputModule,
     PresentationModule,
-    NgbModule
+    NgbModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyARIZgEvVm-isf97lDF5HmAwom6N7ftFg8'
+    })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, MapaUbicacionComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

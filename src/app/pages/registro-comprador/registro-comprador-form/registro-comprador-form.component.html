@@ -1,0 +1,194 @@
+<div class=" container-fluid" style="margin-top: 30px; width: 1000px;">
+    <div class=" row">
+        <div class=" col-lg-12">
+            <div class=" card-wrapper">
+                <div class=" card">
+                    <div class="card-body">
+                        <form>
+                            <h2 class=" mb-0">Información Básica</h2><br>
+                            <div class=" row">
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus2 === true }">
+
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Seleccione Tipo de documento</mat-label>
+                                            <mat-select>
+                                                <mat-option *ngFor="let opcion of opt" [value]="opcion.value">
+                                                    {{opcion.text}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus3 === true }">
+                                        <div class=" input-group input-group-merge">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Número de identificación</mat-label>
+                                                <input matInput placeholder="Ej. 123456789">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class=" row">
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus4 === true }">
+                                        <div class=" input-group input-group-merge">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Primer nombre</mat-label>
+                                                <input matInput placeholder="Ej. Juan">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus5 === true }">
+                                        <div class=" input-group input-group-merge">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Segundo nombre</mat-label>
+                                                <input matInput placeholder="Ej. José">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" row">
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus6 === true }">
+                                        <div class=" input-group input-group-merge">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Primer apellido</mat-label>
+                                                <input matInput placeholder="Ej. Pérez">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus7 === true }">
+                                        <div class=" input-group input-group-merge">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Segundo apellido</mat-label>
+                                                <input matInput placeholder="Ej. Restrepo">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" row">
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus8 === true }">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Seleccione Departamento</mat-label>
+                                            <mat-select>
+                                                <mat-option *ngFor="let opcion of opt" [value]="opcion.value">
+                                                    {{opcion.text}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus9 === true }">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Seleccione Municipio</mat-label>
+                                            <mat-select>
+                                                <mat-option *ngFor="let opcion of opt" [value]="opcion.value">
+                                                    {{opcion.text}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" row">
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus10 === true }">
+                                        <div class=" input-group input-group-merge">
+                                            <!-- <mat-form-field class="example-full-width">
+                                                <mat-label>Ubicación GPS</mat-label>
+                                                <input matInput placeholder="Ej. Calle 10 # 01-67">
+                                            </mat-form-field> -->
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Ubicación GPS</mat-label>
+                                                <input matInput placeholder="3434634636 - 35252235" [disabled]="true" value="{{coords}}">
+                                                <a (click)="openDialog()" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+                                                <!-- <mat-hint>Hint</mat-hint> -->
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus10 === true }">
+                                        <div class=" input-group input-group-merge">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Dirección</mat-label>
+                                                <input matInput placeholder="Ej. Calle 10 # 01-67">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" row">
+                                <div class=" col-md-6">
+                                    <div class=" form-group" [ngClass]="{ focused: focus11 === true }">
+                                        <div class=" input-group input-group-merge">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Correo electrónico</mat-label>
+                                                <input matInput placeholder="Ej. example@example.com">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class=" col-md-3">
+                                    <div class=" form-group" [ngClass]="{ focused: focus12 === true }">
+                                        <div class=" input-group input-group-merge">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Celular</mat-label>
+                                                <input matInput placeholder="Ej. 3111111111">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" col-md-3">
+                                    <div class=" form-group" [ngClass]="{ focused: focus12 === true }">
+                                        <div class=" input-group input-group-merge">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Celular (Opcional)</mat-label>
+                                                <input matInput placeholder="Ej. 3111111111">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-slide-toggle><a>Acepto términos y condiciones</a></mat-slide-toggle>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-slide-toggle>Autorizo a comproenneiva.com, para que recolecte mis datos
+                                        personales y los conserve dentro de su base de datos</mat-slide-toggle>
+                                </div>
+                            </div>
+                        </form><br>
+                        <button class=" btn btn-icon btn-primary" type="button" matStepperNext (click)="selectTab()">
+                            <span class=" btn-inner--icon">
+                                <i class="fas fa-save"></i>
+                            </span>
+                            <span class=" btn-inner--text"> Guardar </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,181 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" (opened)="panelOpenState = true" (closed)="panelOpenState = false" [hideToggle]="true" style="box-shadow: none;">
+        <mat-expansion-panel-header style="background-color:lightgreen; width: 165px; margin-left: 20px;">
+            <mat-panel-title style="color: white !important;">
+                <i class="fas fa-plus" style="margin-right: 5px;"></i> Nueva sede
+            </mat-panel-title>
+        </mat-expansion-panel-header><br>
+
+        <form>
+            <div class=" row">
+                <div class=" col-md-6">
+                    <div class=" form-group" [ngClass]="{ focused: focus8 === true }">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Seleccione Departamento</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let opcion of opt" [value]="opcion.value">
+                                    {{opcion.text}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class=" col-md-6">
+                    <div class=" form-group" [ngClass]="{ focused: focus9 === true }">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Seleccione Municipio</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let opcion of opt" [value]="opcion.value">
+                                    {{opcion.text}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class=" row">
+                <div class=" col-md-6">
+                    <div class=" form-group" [ngClass]="{ focused: focus10 === true }">
+                        <div class=" input-group input-group-merge">
+                            <mat-form-field class="example-full-width" (click)="openDialog()">
+                                <mat-label>Ubicación GPS</mat-label>
+                                <input matInput placeholder="3434634636 - 35252235" [disabled]="true"
+                                    value="{{coords}}">
+                                <mat-icon matSuffix>room</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" col-md-6">
+                    <div class=" form-group" [ngClass]="{ focused: focus10 === true }">
+                        <div class=" input-group input-group-merge">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Dirección</mat-label>
+                                <input matInput placeholder="Ej. Calle 10 # 01-67">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" row">
+                <div class=" col-md-6">
+                    <div class=" form-group" [ngClass]="{ focused: focus11 === true }">
+                        <div class=" input-group input-group-merge">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Correo electrónico</mat-label>
+                                <input matInput placeholder="Ej. example@example.com">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" col-md-6">
+                    <div class=" form-group" [ngClass]="{ focused: focus12 === true }">
+                        <div class=" input-group input-group-merge">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>(0) Fotos de la sede</mat-label>
+                                <ngx-mat-file-input></ngx-mat-file-input>
+                                <mat-icon matSuffix>add_a_photo</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class=" row">
+                <div class=" col-md-3">
+                    <div class=" form-group" [ngClass]="{ focused: focus12 === true }">
+                        <div class=" input-group input-group-merge">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Celular</mat-label>
+                                <input type="number" matInput placeholder="Ej. 3111111111">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-3">
+                    <div class=" form-group" [ngClass]="{ focused: focus12 === true }">
+                        <div class=" input-group input-group-merge">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Celular (Opcional)</mat-label>
+                                <input type="number" matInput placeholder="Ej. 3111111111">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" col-md-6">
+                    <div class=" form-group" [ngClass]="{ focused: focus12 === true }">
+                        <div class=" input-group input-group-merge">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>
+                                    <mat-icon>clear</mat-icon> Horario de atención
+                                </mat-label>
+                                <input matInput placeholder="3434634636 - 35252235" [disabled]="true">
+                                <mat-icon matSuffix>access_time</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" row">
+                <div class=" col-md-12">
+                    <div class=" form-group" [ngClass]="{ focused: focus13 === true }">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Seleccione servicios</mat-label>
+                            <mat-select multiple>
+                                <mat-option *ngFor="let opcion of opt" [value]="opcion.value">
+                                    {{opcion.text}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div><br>
+
+            <button class=" btn btn-icon btn-primary" (click)="setStep(null)" type="button" matStepperNext (click)="selectTab()">
+                <span class=" btn-inner--icon">
+                    <i class="fas fa-save"></i>
+                </span>
+                <span class=" btn-inner--text"> Guardar </span>
+            </button>
+        </form>
+    </mat-expansion-panel><br>
+</mat-accordion>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="departamento">
+          <th mat-header-cell *matHeaderCellDef> Departamento </th>
+          <td mat-cell *matCellDef="let element"> {{element.departamento}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="municipio">
+          <th mat-header-cell *matHeaderCellDef> Municipio </th>
+          <td mat-cell *matCellDef="let element"> {{element.municipio}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="direccion">
+          <th mat-header-cell *matHeaderCellDef> Dirección </th>
+          <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="correo">
+          <th mat-header-cell *matHeaderCellDef> Correo </th>
+          <td mat-cell *matCellDef="let element"> {{element.correo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="celular">
+            <th mat-header-cell *matHeaderCellDef> Celular </th>
+            <td mat-cell *matCellDef="let element"> {{element.celular}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
