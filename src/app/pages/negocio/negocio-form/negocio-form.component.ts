@@ -10,6 +10,7 @@ declare var $: any;
   styleUrls: ['./negocio-form.component.scss']
 })
 export class NegocioFormComponent implements OnInit {
+  selectedTab: number = 0;
 
   isLinear = false;
   firstFormGroup: FormGroup;
@@ -19,17 +20,17 @@ export class NegocioFormComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    var selectr: any = document.getElementById("selectr");
-    var options = {};
-    var optionsMultiple = { multiple: true };
-    var selectrmultiple: any = document.getElementById("selectr-multiple");
+    // var selectr: any = document.getElementById("selectr");
+    // var options = {};
+    // var optionsMultiple = { multiple: true };
+    // var selectrmultiple: any = document.getElementById("selectr-multiple");
 
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
+    // this.firstFormGroup = this._formBuilder.group({
+    //   firstCtrl: ['', Validators.required]
+    // });
+    // this.secondFormGroup = this._formBuilder.group({
+    //   secondCtrl: ['', Validators.required]
+    // });
 
     this.dias.push(
       {
@@ -102,5 +103,9 @@ export class NegocioFormComponent implements OnInit {
   // onSliderChange(selectedValues: number[]) {
   //   console.log('VALOR: ', selectedValues);
   // }
+
+  selectTab(){
+    this.selectedTab=1;
+  }
 
 }
