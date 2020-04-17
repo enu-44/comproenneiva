@@ -34,29 +34,16 @@ export class NegocioFormComponent implements OnInit {
     this.dias.push(
       {
         nombre: 'lunes',
-        jornadaContinua: false,
-        continua: {
-          jornada: 'jornada continua',
-          activa: false,
-          horaInicio: { hour: 0, minute: 0 },
-          horaFin: { hour: 0, minute: 0 }
-        },
         jornadas: [
           {
-            jornada: 'mañana',
-            activa: true,
             horaInicio: { hour: 8, minute: 0 },
             horaFin: { hour: 11, minute: 59 }
           },
           {
-            jornada: 'tarde',
-            activa: true,
             horaInicio: { hour: 0, minute: 0 },
             horaFin: { hour: 0, minute: 0 }
           },
           {
-            jornada: 'noche',
-            activa: true,
             horaInicio: { hour: 19, minute: 0 },
             horaFin: { hour: 3, minute: 0 }
           }
@@ -64,29 +51,16 @@ export class NegocioFormComponent implements OnInit {
       },
       {
         nombre: 'martes',
-        jornadaContinua: true,
-        continua: {
-          jornada: 'jornada continua',
-          activa: false,
-          horaInicio: { hour: 6, minute: 0 },
-          horaFin: { hour: 19, minute: 0 }
-        },
         jornadas: [
           {
-            jornada: 'mañana',
-            activa: true,
             horaInicio: { hour: 8, minute: 0 },
             horaFin: { hour: 11, minute: 59 }
           },
           {
-            jornada: 'tarde',
-            activa: true,
             horaInicio: { hour: 0, minute: 0 },
             horaFin: { hour: 0, minute: 0 }
           },
           {
-            jornada: 'noche',
-            activa: true,
             horaInicio: { hour: 19, minute: 0 },
             horaFin: { hour: 3, minute: 0 }
           }
@@ -94,29 +68,16 @@ export class NegocioFormComponent implements OnInit {
       },
       {
         nombre: 'miercoles',
-        jornadaContinua: false,
-        continua: {
-          jornada: 'jornada continua',
-          activa: false,
-          horaInicio: { hour: 0, minute: 0 },
-          horaFin: { hour: 0, minute: 0 }
-        },
         jornadas: [
           {
-            jornada: 'mañana',
-            activa: false,
+            horaInicio: { hour: 8, minute: 0 },
+            horaFin: { hour: 11, minute: 59 }
+          },
+          {
             horaInicio: { hour: 0, minute: 0 },
             horaFin: { hour: 0, minute: 0 }
           },
           {
-            jornada: 'tarde',
-            activa: true,
-            horaInicio: { hour: 13, minute: 0 },
-            horaFin: { hour: 16, minute: 0 }
-          },
-          {
-            jornada: 'noche',
-            activa: true,
             horaInicio: { hour: 19, minute: 0 },
             horaFin: { hour: 3, minute: 0 }
           }
@@ -124,6 +85,19 @@ export class NegocioFormComponent implements OnInit {
       }
     )
 
+  }
+
+  eliminarHora(indexDia: number, indexJornada: number) {
+    this.dias[indexDia].jornadas.splice(indexJornada, 1)
+  }
+
+  agregarJornada(indexDia) {
+    this.dias[indexDia].jornadas.push(
+      {
+        horaInicio: { hour: 0, minute: 0 },
+        horaFin: { hour: 0, minute: 0 }
+      }
+    )
   }
   // onSliderChange(selectedValues: number[]) {
   //   console.log('VALOR: ', selectedValues);

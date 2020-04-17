@@ -51,68 +51,53 @@
                     <mat-tab label="Horarios de atención">
                       <div class="px-2 pt-5 pb-2">
                         <mat-accordion>
-                          <mat-expansion-panel *ngFor="let dia of dias">
+                          <mat-expansion-panel *ngFor="let dia of dias; let indexDia = index">
                             <!-- HEADER DEL PANEL -->
                             <mat-expansion-panel-header>
                               <mat-panel-title style="width: 30%;">
                                 {{ dia.nombre.toUpperCase() }}
                               </mat-panel-title>
                               <mat-panel-description style="width: 70%;">
-                                Horario establecido para el día {{ dia.nombre.toUpperCase() }}
+                                Establece un horario al día {{ dia.nombre.toUpperCase() }}
                               </mat-panel-description>
                             </mat-expansion-panel-header>
                         
                             <!-- CONTENIDO DEL PANEL EXPANSIVO -->
                             <div class="cont-control">
-                              <section class="example-section">
-                                <mat-checkbox color="primary" [(ngModel)]="dia.jornadaContinua">Jornada continua</mat-checkbox>
-                              </section>
-                              
+                              <div class="w-100 text-right mb-4">
+                                <button mat-stroked-button (click)="agregarJornada(indexDia)">Agregar una jornada</button>
+                              </div>
                               <div class="table-responsive">
-                                <table class="table table-bordered align-items-center">                    
+                                <table class="table table-bordered align-items-center">
+                                  <thead class="thead-light">
+                                    <tr>
+                                      <th class="sort w-10" scope="col">Jornada #</th>
+                                      <th class="sort w-40" scope="col">Hora de inicio</th>
+                                      <th class="sort w-40" scope="col">Hora de cierre</th>
+                                      <th class="sort text-center" scope="col" style="width: 93px;">Acción</th>
+                                    </tr>
+                                  </thead>
                                   <tbody class=" list">
                                     <!-- Jornadas -->
-                                    <ng-container *ngIf="!dia.jornadaContinua">
-                                      <tr *ngFor="let jornada of dia.jornadas">
-                                        <th scope="row">
-                                          <div class="media align-items-center">                 
-                                            <div class="media-body row">
-                                              <span class="col-6 mb-0 text-sm">
-                                                <strong class="mr-4"> {{ jornada.jornada }} </strong>
-                                              </span>
-                                              <mat-slide-toggle color="primary" [(ngModel)]="jornada.activa"></mat-slide-toggle>
-                                            </div>
-                                          </div>
-                                        </th>
-                        
-                                        <td class=" budget">
-                                          <ngb-timepicker [(ngModel)]="jornada.horaInicio" [disabled]="!jornada.activa" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
-                                        </td>
-                                        <td class=" budget">
-                                          <ngb-timepicker [(ngModel)]="jornada.horaFin" [disabled]="!jornada.activa" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
-                                        </td>
-                                      </tr>
-                                    </ng-container>
-
-                                    <tr *ngIf="dia.jornadaContinua">
+                                    <tr *ngFor="let jornada of dia.jornadas; let indexJornada = index">
                                       <th scope="row">
-                                        <div class="media align-items-center">                 
-                                          <div class="media-body row">
-                                            <span class="col-6 mb-0 text-sm">
-                                              <strong class="mr-4"> {{ dia.continua.jornada }} </strong>
-                                            </span>
-                                          </div>
+                                        <div class="text-center">
+                                          {{ indexJornada + 1 }}
                                         </div>
                                       </th>
                       
-                                      <td class=" budget">
-                                        <ngb-timepicker [(ngModel)]="dia.continua.horaInicio" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
+                                      <td class="budget">
+                                        <ngb-timepicker [(ngModel)]="jornada.horaInicio" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
                                       </td>
-                                      <td class=" budget">
-                                        <ngb-timepicker [(ngModel)]="dia.continua.horaFin" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
+                                      <td class="budget">
+                                        <ngb-timepicker [(ngModel)]="jornada.horaFin" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
+                                      </td>
+                                      <!-- ACCIÓN ELIMINAR -->
+                                      <td class="budget text-center">
+                                        <span class="material-icons" style="color:rgb(207, 0, 0); cursor: pointer;" (click)="eliminarHora(indexDia, indexJornada)">delete</span>
+                                        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon> -->
                                       </td>
                                     </tr>
-                          
                                   </tbody>
                                 </table>
                               </div>
