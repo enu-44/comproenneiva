@@ -23,9 +23,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { HorariosComponent } from './horarios/horarios.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
-  declarations: [NegocioFormComponent, NegocioComponent, SedesFormComponent, HorariosComponent],
+  declarations: [
+    NegocioFormComponent,
+    NegocioComponent,
+    SedesFormComponent,
+    HorariosComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -33,6 +39,7 @@ import { HorariosComponent } from './horarios/horarios.component';
     MatExpansionModule,
     MatInputModule,
     MatTabsModule,
+    ComponentsModule,
     // NpnSliderModule,
     RouterModule.forChild(NegocioRoutes),
     MatFormFieldModule,

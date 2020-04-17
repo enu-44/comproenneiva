@@ -21,6 +21,6 @@ export class LoginComponent implements OnInit {
   }
 
   registrarCuenta() {
-    this.router.navigate(['/examples/registro'])
+    this.router.navigate(['../comprador/components'])
   }
 }

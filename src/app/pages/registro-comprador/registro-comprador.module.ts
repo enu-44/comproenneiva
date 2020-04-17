@@ -7,13 +7,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatIconModule} from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+// import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [RegistroCompradorFormComponent],
   imports: [
     CommonModule,
+    // ComponentsModule,
     RouterModule.forChild(CompradorRoutes),
     MatInputModule,
     MatFormFieldModule,
