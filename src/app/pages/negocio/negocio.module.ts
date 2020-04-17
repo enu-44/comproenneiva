@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NegocioFormComponent } from './negocio-form/negocio-form.component';
+import { MrsComponent } from '../../components/mrs/mrs.component';
 import { RouterModule } from "@angular/router";
 import { NegocioRoutes } from "./negocio.routing";
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NpnSliderModule } from "npn-slider";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -19,15 +20,18 @@ import { NegocioComponent } from './negocio.component';
 import { SedesFormComponent } from './sedes-form/sedes-form.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [NegocioFormComponent, NegocioComponent, SedesFormComponent],
   imports: [
     CommonModule,
+    FormsModule,
     MatExpansionModule,
     MatInputModule,
     MatTabsModule,
-    NpnSliderModule,
+    // NpnSliderModule,
     RouterModule.forChild(NegocioRoutes),
     MatFormFieldModule,
     MatSelectModule,
@@ -36,7 +40,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MaterialFileInputModule,
     MatIconModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatButtonModule
     // NgbModule
   ]
 })

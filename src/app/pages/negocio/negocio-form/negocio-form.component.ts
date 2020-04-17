@@ -20,7 +20,6 @@ interface Opciones {
   styleUrls: ['./negocio-form.component.scss']
 })
 export class NegocioFormComponent implements OnInit {
-  isLinear = false;
   selectedTab: number = 0;
   coords: any = '0 - 0';
 
@@ -32,11 +31,94 @@ export class NegocioFormComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public serviceUbicacion: MapaUbicacionService) { }
 
-  ngOnInit() { }
+  isLinear = false;
+  dias: any [] = [];
+  time = {hour: 13, minute: 30};
 
-  onSliderChange(selectedValues: number[]) {
-    console.log('VALOR: ', selectedValues);
+  ngOnInit() {
+    // var selectr: any = document.getElementById("selectr");
+    // var options = {};
+    // var optionsMultiple = { multiple: true };
+    // var selectrmultiple: any = document.getElementById("selectr-multiple");
+
+    // this.firstFormGroup = this._formBuilder.group({
+    //   firstCtrl: ['', Validators.required]
+    // });
+    // this.secondFormGroup = this._formBuilder.group({
+    //   secondCtrl: ['', Validators.required]
+    // });
+
+    this.dias.push(
+      {
+        nombre: 'lunes',
+        jornadas: [
+          {
+            horaInicio: { hour: 8, minute: 0 },
+            horaFin: { hour: 11, minute: 59 }
+          },
+          {
+            horaInicio: { hour: 0, minute: 0 },
+            horaFin: { hour: 0, minute: 0 }
+          },
+          {
+            horaInicio: { hour: 19, minute: 0 },
+            horaFin: { hour: 3, minute: 0 }
+          }
+        ]
+      },
+      {
+        nombre: 'martes',
+        jornadas: [
+          {
+            horaInicio: { hour: 8, minute: 0 },
+            horaFin: { hour: 11, minute: 59 }
+          },
+          {
+            horaInicio: { hour: 0, minute: 0 },
+            horaFin: { hour: 0, minute: 0 }
+          },
+          {
+            horaInicio: { hour: 19, minute: 0 },
+            horaFin: { hour: 3, minute: 0 }
+          }
+        ]
+      },
+      {
+        nombre: 'miercoles',
+        jornadas: [
+          {
+            horaInicio: { hour: 8, minute: 0 },
+            horaFin: { hour: 11, minute: 59 }
+          },
+          {
+            horaInicio: { hour: 0, minute: 0 },
+            horaFin: { hour: 0, minute: 0 }
+          },
+          {
+            horaInicio: { hour: 19, minute: 0 },
+            horaFin: { hour: 3, minute: 0 }
+          }
+        ]
+      }
+    )
+
   }
+
+  eliminarHora(indexDia: number, indexJornada: number) {
+    this.dias[indexDia].jornadas.splice(indexJornada, 1)
+  }
+
+  agregarJornada(indexDia) {
+    this.dias[indexDia].jornadas.push(
+      {
+        horaInicio: { hour: 0, minute: 0 },
+        horaFin: { hour: 0, minute: 0 }
+      }
+    )
+  }
+  // onSliderChange(selectedValues: number[]) {
+  //   console.log('VALOR: ', selectedValues);
+  // }
 
   selectTab(){
     this.selectedTab=1;
