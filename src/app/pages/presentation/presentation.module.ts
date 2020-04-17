@@ -6,9 +6,12 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AgmCoreModule } from '@agm/core';
 import { RouterModule } from "@angular/router";
 import { PresentationComponent } from "./presentation.component";
-
+import { NavbarComponent } from '../components/navbar/navbar.component'
 @NgModule({
-  declarations: [PresentationComponent],
+  declarations: [
+    PresentationComponent,
+    NavbarComponent
+  ],
   imports: [
     CommonModule, 
     RouterModule, 
