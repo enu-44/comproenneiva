@@ -8,15 +8,23 @@
 
   <agm-marker 
       *ngFor="let m of markers; let i = index"
-      (markerClick)="clickedMarker(m.label, i)"
+      (markerClick)="clickedMarker(m.nombre, i)"
       [latitude]="m.lat"
       [longitude]="m.lng"
-      [label]="m.label"
       [markerDraggable]="m.draggable"
-      (dragEnd)="markerDragEnd(m, $event)">
-      
+      (dragEnd)="markerDragEnd(m, $event)"
+      [iconUrl]='{"url": m.icon,"scaledSize": {"height": 35, "width": 30}}'
+      >
+<!--       
     <agm-info-window>
-      <strong>InfoWindow content</strong>
+      <strong>{{m.nombre}}</strong>
+    </agm-info-window> -->
+
+    <agm-info-window #infowindow [maxWidth]="320">
+      <div>
+        <h2>{{ m.nombre }}</h2>
+      </div>
+      <img src="../../../../assets/img/logo.png" width="100">
     </agm-info-window>
     
   </agm-marker>
