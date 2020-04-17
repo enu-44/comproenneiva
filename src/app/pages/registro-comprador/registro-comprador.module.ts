@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [RegistroCompradorFormComponent],
@@ -18,7 +19,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatFormFieldModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ]
 })
 export class RegistroCompradorModule { }

@@ -110,15 +110,11 @@
                                 <div class=" col-md-6">
                                     <div class=" form-group" [ngClass]="{ focused: focus10 === true }">
                                         <div class=" input-group input-group-merge">
-                                            <!-- <mat-form-field class="example-full-width">
+                                            <mat-form-field class="example-full-width" (click)="openDialog()">
                                                 <mat-label>Ubicación GPS</mat-label>
-                                                <input matInput placeholder="Ej. Calle 10 # 01-67">
-                                            </mat-form-field> -->
-                                            <mat-form-field class="example-full-width">
-                                                <mat-label>Ubicación GPS</mat-label>
-                                                <input matInput placeholder="3434634636 - 35252235" [disabled]="true" value="{{coords}}">
-                                                <a (click)="openDialog()" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
-                                                <!-- <mat-hint>Hint</mat-hint> -->
+                                                <input matInput placeholder="3434634636 - 35252235" [disabled]="true"
+                                                    value="{{coords}}">
+                                                    <mat-icon matSuffix>room</mat-icon>
                                             </mat-form-field>
                                         </div>
                                     </div>
