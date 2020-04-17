@@ -15,6 +15,7 @@ import { NotificationsComponent } from "./notifications/notifications.component"
 import { CardsComponent } from "./cards/cards.component";
 import { ComponentsComponent } from "./components/components.component";
 import { TypographyComponent } from "./typography/typography.component";
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TypographyComponent } from "./typography/typography.component";
     IconsComponent,
     CardsComponent,
     ComponentsComponent,
-    TypographyComponent
+    TypographyComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
