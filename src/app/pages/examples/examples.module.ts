@@ -5,6 +5,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { ProfileComponent } from "./profile/profile.component";
 import { TimelineComponent } from "./timeline/timeline.component";
+import { MatButtonModule } from '@angular/material/button';
 
 import { RouterModule } from "@angular/router";
 import { ExamplesRoutes } from "./examples.routing";
@@ -12,6 +13,7 @@ import { ExamplesRoutes } from "./examples.routing";
 @NgModule({
   declarations: [ProfileComponent, TimelineComponent],
   imports: [
+    MatButtonModule,
     CommonModule,
     // MatExpansionModule,
     RouterModule.forChild(ExamplesRoutes),

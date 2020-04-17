@@ -11,11 +11,13 @@ import { PricingComponent } from "../../pages/examples/pricing/pricing.component
 import { LockComponent } from "../../pages/examples/lock/lock.component";
 import { RegisterComponent } from "../../pages/examples/register/register.component";
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     MatExpansionModule,
+    MatButtonModule,
     CommonModule,
     RouterModule.forChild(AuthLayoutRoutes),
     FormsModule
