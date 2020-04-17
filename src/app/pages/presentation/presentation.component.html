@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <agm-map 
+  style="height: 90%;"
   [latitude]="lat"
   [longitude]="lng"
   [zoom]="zoom"
@@ -37,6 +38,15 @@
   </agm-circle>
 
 </agm-map>
+
+<div class="cont-botones">
+  <button mat-raised-button color="basic" [routerLink]="['/examples/login']">
+    <span class="material-icons">person</span> Inicias sesión
+  </button>
+  <button mat-raised-button color="basic" [routerLink]="['../comprador/components']">
+    <span class="material-icons">input</span> Registrarse
+  </button>
+</div>
 
 <!-- Footer -->
 <!-- <footer class="py-5" id="footer-main">

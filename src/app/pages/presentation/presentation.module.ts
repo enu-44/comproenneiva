@@ -6,7 +6,9 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AgmCoreModule } from '@agm/core';
 import { RouterModule } from "@angular/router";
 import { PresentationComponent } from "./presentation.component";
-import { ComponentsModule } from '../components/components.module'
+import { ComponentsModule } from '../components/components.module';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     PresentationComponent,
@@ -14,6 +16,7 @@ import { ComponentsModule } from '../components/components.module'
   imports: [
     CommonModule, 
     RouterModule, 
+    MatButtonModule,
     ComponentsModule,
     TooltipModule.forRoot(), 
     BsDropdownModule.forRoot(), 
