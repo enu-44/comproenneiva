@@ -1,0 +1,36 @@
+.fondo-login{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: unset;
+        object-position: center;
+    }
+}
+
+.card{
+    background-color: none !important;
+}
+
+button {
+    border-radius: 20px;
+    background-color: gray !important;
+    border: none;
+    color: red;
+}
+
+button:hover {
+    color: red;
+}
+
+.redondeado{
+    border-radius: 20px;
+}
+
+a {
+    border-radius: 20px;
+    border: 1px solid gray !important;
+}
