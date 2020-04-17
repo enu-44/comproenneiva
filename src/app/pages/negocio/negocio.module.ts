@@ -23,7 +23,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { HorariosComponent } from './horarios/horarios.component';
-import { ComponentsModule } from '../components/components.module';
+// import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { ComponentsModule } from '../components/components.module';
     MatExpansionModule,
     MatInputModule,
     MatTabsModule,
-    ComponentsModule,
+    // ComponentsModule,
     // NpnSliderModule,
     RouterModule.forChild(NegocioRoutes),
     MatFormFieldModule,
