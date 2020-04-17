@@ -12,4 +12,8 @@ export class NegocioComponent implements OnInit {
   ngOnInit() {
   }
 
+  guardarDia(dia) {
+    console.log('DIA: ', dia)
+  }
+
 }

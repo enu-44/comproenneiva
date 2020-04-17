@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-horarios',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
 export class HorariosComponent implements OnInit {
 
   dias: any [] = [];
+  @Output() diaGuardado = new EventEmitter<any>();
 
   constructor() { }
 
@@ -15,37 +16,11 @@ export class HorariosComponent implements OnInit {
     this.dias.push(
       {
         nombre: 'lunes',
-        jornadas: [
-          {
-            horaInicio: { hour: 8, minute: 0 },
-            horaFin: { hour: 11, minute: 59 }
-          },
-          {
-            horaInicio: { hour: 0, minute: 0 },
-            horaFin: { hour: 0, minute: 0 }
-          },
-          {
-            horaInicio: { hour: 19, minute: 0 },
-            horaFin: { hour: 3, minute: 0 }
-          }
-        ]
+        jornadas: []
       },
       {
         nombre: 'martes',
-        jornadas: [
-          {
-            horaInicio: { hour: 8, minute: 0 },
-            horaFin: { hour: 11, minute: 59 }
-          },
-          {
-            horaInicio: { hour: 0, minute: 0 },
-            horaFin: { hour: 0, minute: 0 }
-          },
-          {
-            horaInicio: { hour: 19, minute: 0 },
-            horaFin: { hour: 3, minute: 0 }
-          }
-        ]
+        jornadas: []
       },
       {
         nombre: 'miercoles',
@@ -54,18 +29,30 @@ export class HorariosComponent implements OnInit {
             horaInicio: { hour: 8, minute: 0 },
             horaFin: { hour: 11, minute: 59 }
           },
-          {
-            horaInicio: { hour: 0, minute: 0 },
-            horaFin: { hour: 0, minute: 0 }
-          },
-          {
-            horaInicio: { hour: 19, minute: 0 },
-            horaFin: { hour: 3, minute: 0 }
-          }
         ]
-      }
+      },
+      {
+        nombre: 'jueves',
+        jornadas: []
+      },
+      {
+        nombre: 'viernes',
+        jornadas: []
+      },
+      {
+        nombre: 'sábado',
+        jornadas: []
+      },
+      {
+        nombre: 'domingo',
+        jornadas: []
+      },
     )
 
+  }
+
+  guardarDia(indexDia: number) {
+    this.diaGuardado.emit(this.dias[indexDia])
   }
 
   eliminarHora(indexDia: number, indexJornada: number) {

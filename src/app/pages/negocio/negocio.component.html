@@ -10,11 +10,11 @@
                 </mat-tab>
                 <mat-tab label="Horarios de atención">
                   <div class="w-100 mt-3">
-                    <app-horarios></app-horarios>
+                    <app-horarios (diaGuardado)="guardarDia($event)"></app-horarios>
                   </div>
                 </mat-tab>
                 <mat-tab label="Sedes" style="width: 500px;"><br>
-                    <sedes-form></sedes-form>
+                  <sedes-form></sedes-form>
                 </mat-tab>
               </mat-tab-group>
             </div>
