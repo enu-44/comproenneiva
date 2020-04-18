@@ -10,25 +10,24 @@ import { LockComponent } from "../../pages/examples/lock/lock.component";
 import { RegisterComponent } from "../../pages/examples/register/register.component";
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
-import { JhipsterSharedLibsModule } from './shared-libs.module';
 import { HasAnyAuthorityDirective } from '../../shared/auth/has-any-authority.directive';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
+    RouterModule.forChild(AuthLayoutRoutes),
+    BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+    // BrowserAnimationsModule,
     MatExpansionModule,
     MatButtonModule,
-    JhipsterSharedLibsModule,
-    HasAnyAuthorityDirective,
-    RouterModule.forChild(AuthLayoutRoutes),
-    MatInputModule,
-    MatFormFieldModule,
+    // JhipsterSharedLibsModule,
+    // HasAnyAuthorityDirective,
   ],
   declarations: [
-    HasAnyAuthorityDirective,
+    // HasAnyAuthorityDirective,
     LoginComponent,
     PricingComponent,
     LockComponent,

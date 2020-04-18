@@ -1,3 +1,5 @@
+import { IElementoLista } from './elemento-lista.model';
+
 export interface IEstablecimiento {
   id?: number;
   nombre?: string;
@@ -18,6 +20,7 @@ export interface IEstablecimiento {
   usuarioId?: number;
   padreId?: number;
   razonSocialId?: number;
+  tipoEstablecimiento: IElementoLista;
 }
 
 export class Establecimiento implements IEstablecimiento {
@@ -41,8 +44,10 @@ export class Establecimiento implements IEstablecimiento {
     public usuarioId?: number,
     public padreId?: number,
     public razonSocialId?: number
+    
   ) {
     this.principal = this.principal || false;
     this.afiliadoCC = this.afiliadoCC || false;
   }
+  tipoEstablecimiento: IElementoLista;
 }

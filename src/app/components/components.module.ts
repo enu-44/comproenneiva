@@ -8,7 +8,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 import { SidebarComponent } from "./sidebar/sidebar.component";
-import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
 import { VectorMapComponent1 } from "./vector-map/vector-map.component";
 
@@ -16,6 +15,10 @@ import { RouterModule } from "@angular/router";
 import { CollapseModule } from "ngx-bootstrap/collapse";
 import { DxVectorMapModule } from "devextreme-angular";
 import { BsDropdownModule } from "ngx-bootstrap";
+import { NavbarCustomComponent } from './navbar-custom/navbar-custom.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
+
 
 @NgModule({
   imports: [
@@ -29,14 +32,16 @@ import { BsDropdownModule } from "ngx-bootstrap";
   declarations: [
     FooterComponent,
     VectorMapComponent1,
-    NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    NavbarCustomComponent,
+    NavbarComponent
   ],
   exports: [
     FooterComponent,
     VectorMapComponent1,
-    NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    NavbarCustomComponent,
+    NavbarComponent
   ],
   providers: [
     {

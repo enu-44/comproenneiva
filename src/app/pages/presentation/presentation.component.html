@@ -1,11 +1,17 @@
-<app-navbar></app-navbar>
+<app-navbar-custom></app-navbar-custom>
+
+<!-- [mapTypeId]="'relieve'" -->
 <agm-map 
+[streetViewControl]="true"
   style="height: 90%;"
   [latitude]="lat"
   [longitude]="lng"
+  [mapTypeControl]='true'
+  [fullscreenControl]='true'
+  [styles]="customStyle"
   [zoom]="zoom"
-  [disableDefaultUI]="false"
-  [zoomControl]="false">
+  [disableDefaultUI]="true"
+  [zoomControl]="true">
 
   <agm-marker 
       *ngFor="let m of markers; let i = index"
@@ -23,9 +29,17 @@
 
     <agm-info-window #infowindow [maxWidth]="320">
       <div>
-        <h2>{{ m.nombre }}</h2>
+        <h3>{{ m.nombre }}</h3>
+
+            Direccion: <small><strong>{{ m.model.direccion }}</strong></small><br>
+            Email: <small><strong>{{ m.model.email }}</strong></small><br>
+            Telefono: <small><strong>{{ m.model.telefono }}</strong></small><br>
+            Celular: <small><strong>{{ m.model.celular }}</strong></small><br>
+            <img src="../../../../assets/img/logo.png" width="50"> ¿ Principal ? <small><strong>{{ m.model.principal ? 'SI':'NO' }}</strong></small>
+          
+            
+         
       </div>
-      <img src="../../../../assets/img/logo.png" width="100">
     </agm-info-window>
     
   </agm-marker>
@@ -40,13 +54,13 @@
 </agm-map>
 
 <div class="cont-botones">
-  <button mat-raised-button color="basic" [routerLink]="['/examples/login']">
+  <button *ngIf="!isAuthenticated()" mat-raised-button color="basic" [routerLink]="['/examples/login']">
     <span class="material-icons">person</span> Iniciar sesión
   </button>
-  <button mat-raised-button color="basic" [routerLink]="['../comprador/components']">
+  <button *ngIf="!isAuthenticated()" mat-raised-button color="basic" [routerLink]="['../comprador/components']">
     <span class="material-icons">input</span> Registrarse
   </button>
-  <button mat-raised-button color="basic" [routerLink]="['../negocio/components']">
+  <button *ngIf="isAuthenticated()" mat-raised-button color="basic" [routerLink]="['../negocio/components']">
     <span class="material-icons">apartment</span> Registrar empresa
   </button>
 </div>
