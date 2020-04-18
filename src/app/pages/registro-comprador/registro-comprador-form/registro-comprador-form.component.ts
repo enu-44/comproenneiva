@@ -5,6 +5,7 @@ import { MapaUbicacionService } from '../../mapa-ubicacion/mapa-ubicacion.servic
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { RegistroCompradorService } from '../registro-comprador.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 export interface DialogData {
   animal: string;
@@ -53,7 +54,8 @@ export class RegistroCompradorFormComponent implements OnInit {
   constructor(public dialog: MatDialog, 
     public serviceUbicacion: MapaUbicacionService,
     private formBuilder: FormBuilder,
-    private service: RegistroCompradorService) { }
+    private service: RegistroCompradorService,
+    private router: Router) { }
 
   ngOnInit() {
     this.compradorForm = this.returnCompradorForm();
@@ -123,6 +125,7 @@ export class RegistroCompradorFormComponent implements OnInit {
         type: 'success',
         title: 'Usuario creado exitosamente'
       })
+      this.router.navigate(['/presentation'])
     },(error:any)=>{
       const Toast = Swal.mixin({
         toast: true,
