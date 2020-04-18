@@ -24,7 +24,7 @@ import { JhipsterCoreModule } from './core/core.module';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
-    FormsModule,
+    // FormsModule,
     HttpClientModule,
     ComponentsModule,
     RouterModule,

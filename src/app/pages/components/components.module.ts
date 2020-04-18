@@ -15,7 +15,6 @@ import { NotificationsComponent } from "./notifications/notifications.component"
 import { CardsComponent } from "./cards/cards.component";
 import { ComponentsComponent } from "./components/components.component";
 import { TypographyComponent } from "./typography/typography.component";
-import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     IconsComponent,
     CardsComponent,
     ComponentsComponent,
-    TypographyComponent,
-    NavbarComponent
+    TypographyComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +35,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     ClipboardModule
   ],
   exports: [
-    NavbarComponent
   ]
 })
 export class ComponentsModule {}

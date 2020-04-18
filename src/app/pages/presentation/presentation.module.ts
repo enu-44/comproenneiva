@@ -6,8 +6,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AgmCoreModule } from '@agm/core';
 import { RouterModule } from "@angular/router";
 import { PresentationComponent } from "./presentation.component";
-import { ComponentsModule } from '../components/components.module';
 import { MatButtonModule } from '@angular/material/button';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   declarations: [

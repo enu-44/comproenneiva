@@ -17,7 +17,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input formControlName="username" name="username" 
+                <input (keyup)="userNameKey($event)" name="username" formControlName="username"
                   class="form-control"
                   placeholder="Email"
                   type="string"
@@ -30,7 +30,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input formControlName="password" name="password"    
+                <input name="password"  (keyup)="passwordKey($event)"  formControlName="password"
                   class="form-control"
                   placeholder="Password"
                   [type]="verPass ? 'text' : 'password'"
@@ -45,7 +45,7 @@
             </div>
             <div class="row mt-2 px-3">
               <div class="col-4 custom-control custom-control-alternative custom-checkbox">
-                <input formControlName="rememberMe" name="rememberMe" 
+                <input name="rememberMe" (change)="recorderKey($event)" formControlName="rememberMe"
                   class="custom-control-input"
                   id="customCheckLogin"
                   type="checkbox"

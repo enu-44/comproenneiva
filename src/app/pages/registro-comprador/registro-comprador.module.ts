@@ -11,12 +11,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 // import { ComponentsModule } from '../components/components.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ComponentsModule } from 'src/app/components/components.module';
+
+
 
 @NgModule({
   declarations: [RegistroCompradorFormComponent],
   imports: [
     CommonModule,
-    // ComponentsModule,
+    ComponentsModule,
+    
     RouterModule.forChild(CompradorRoutes),
     MatInputModule,
     MatFormFieldModule,

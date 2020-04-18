@@ -1,7 +1,9 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef } from "@angular/core";
 import { LoginService } from '../../../core/login/login.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Location } from '@angular/common';
+import { AccountService } from 'src/app/core/auth/account.service';
 
 @Component({
   selector: "app-login",
@@ -20,19 +22,26 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   loginForm:FormGroup;
 
+  modelLogin={
+    username: '',
+    password: '',
+    rememberMe: false
+  }
+
   constructor(
+    private accountService:AccountService,
+    private location: Location,
     private _cd: ChangeDetectorRef,
-
-    private loginService: LoginService, private router: Router, private fb: FormBuilder) {}
+    private loginService: LoginService,
+     private router: Router, private formBuilder: FormBuilder) {}
   ngOnInit(): void {
-
     this.loginForm=this.createForm()
     this._cd.detectChanges();
   }
   createForm():FormGroup{
-    return this.fb.group({
-      username: ['',[Validators.required]],
-      password: ['',[Validators.required]],
+    return this.formBuilder.group({
+      username: [null,[Validators.required]],
+      password: [null,[Validators.required]],
       rememberMe: [false]
     })
   }
@@ -42,6 +51,12 @@ export class LoginComponent implements OnInit, AfterViewInit {
    /*  if (this.username) {
       this.username.nativeElement.focus();
     } */
+
+    if(this.accountService.identity(true)){
+      if(this.accountService.isAuthenticated()){
+        this.location.back()
+      }
+    }
   }
 
   cancel(): void {
@@ -53,30 +68,35 @@ export class LoginComponent implements OnInit, AfterViewInit {
     // this.activeModal.dismiss('cancel');
   }
 
-  login(loginForm:FormGroup) {
+  userNameKey(value){
+    this.loginForm.get("username").setValue(value.srcElement.value)
+  }
 
-    console.log("FORM: ", this.loginForm)
+  passwordKey(value){
+    this.loginForm.get("password").setValue(value.srcElement.value)
+  }
+
+  recorderKey(value){
+    this.loginForm.get("rememberMe").setValue(value.srcElement.checked)
+  }
+
+  login(loginForm:FormGroup): void {
     let event = loginForm.getRawValue()
-
-   /*  let request = {
-      username: this.loginForm.get('username')!.value,
-      password: this.loginForm.get('password')!.value,
-      rememberMe: this.loginForm.get('rememberMe')!.value
-    }; */
-
     this.loginService
       .login(event)
       .subscribe(
         () => {
           this.authenticationError = false;
          // this.activeModal.close();
-          if (
+         /*  if (
             this.router.url === '/account/register' ||
             this.router.url.startsWith('/account/activate') ||
             this.router.url.startsWith('/account/reset/')
           ) {
             this.router.navigate(['']);
-          }
+          } */
+          this.location.back()
+          // this.router.navigate(['../comprador/components'])
         },
         () => (this.authenticationError = true)
       );
