@@ -25,6 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HorariosComponent } from './horarios/horarios.component';
 // import { ComponentsModule } from '../components/components.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatExpansionModule,
     MatInputModule,
     MatTabsModule,
+    MatBadgeModule,
     // ComponentsModule,
     // NpnSliderModule,
     RouterModule.forChild(NegocioRoutes),

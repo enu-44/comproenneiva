@@ -26,6 +26,7 @@ export class HorariosComponent implements OnInit {
         nombre: 'miercoles',
         jornadas: [
           {
+            valida: true,
             horaInicio: { hour: 8, minute: 0 },
             horaFin: { hour: 11, minute: 59 }
           },
@@ -62,10 +63,24 @@ export class HorariosComponent implements OnInit {
   agregarJornada(indexDia) {
     this.dias[indexDia].jornadas.push(
       {
+        valida: true,
         horaInicio: { hour: 0, minute: 0 },
         horaFin: { hour: 0, minute: 0 }
       }
     )
+  }
+
+  rangoHorasVaido(indexDia, indexJornada) {
+    let jornadaValida = false;
+    const horaInicio = `${this.dias[indexDia].jornadas[indexJornada].horaInicio.hour}${this.dias[indexDia].jornadas[indexJornada].horaInicio.minute < 10 ? `0${this.dias[indexDia].jornadas[indexJornada].horaInicio.minute}` : this.dias[indexDia].jornadas[indexJornada].horaInicio.minute }`;
+    const horaFin = `${this.dias[indexDia].jornadas[indexJornada].horaFin.hour}${this.dias[indexDia].jornadas[indexJornada].horaFin.minute < 10 ? `0${this.dias[indexDia].jornadas[indexJornada].horaFin.minute}` : this.dias[indexDia].jornadas[indexJornada].horaFin.minute }`;
+    
+    if ( Number(horaInicio) < Number(horaFin) ) {
+      jornadaValida = true;
+    }
+
+    this.dias[indexDia].jornadas[indexJornada].valida = jornadaValida;
+
   }
 
 }

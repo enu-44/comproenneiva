@@ -1,7 +1,5 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AuthLayoutRoutes } from "./auth-layout.routing";
@@ -12,17 +10,21 @@ import { LockComponent } from "../../pages/examples/lock/lock.component";
 import { RegisterComponent } from "../../pages/examples/register/register.component";
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
+import { JhipsterSharedLibsModule } from './shared-libs.module';
+import { HasAnyAuthorityDirective } from '../../shared/auth/has-any-authority.directive';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     MatExpansionModule,
     MatButtonModule,
-    CommonModule,
+    JhipsterSharedLibsModule,
+    HasAnyAuthorityDirective,
+
     RouterModule.forChild(AuthLayoutRoutes),
-    FormsModule
   ],
   declarations: [
+    HasAnyAuthorityDirective,
     LoginComponent,
     PricingComponent,
     LockComponent,
@@ -30,4 +32,5 @@ import { MatButtonModule } from '@angular/material/button';
     ConfirmacionComponent
   ]
 })
+
 export class AuthLayoutModule {}
