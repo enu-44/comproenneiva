@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { MapaUbicacionComponent } from '../../mapa-ubicacion/mapa-ubicacion.component'
 import { MapaUbicacionService } from '../../mapa-ubicacion/mapa-ubicacion.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { RegistroCompradorService } from '../registro-comprador.service';
 
 
 export interface DialogData {
@@ -34,10 +35,18 @@ export class RegistroCompradorFormComponent implements OnInit {
 
   constructor(public dialog: MatDialog, 
     public serviceUbicacion: MapaUbicacionService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private service: RegistroCompradorService) { }
 
   ngOnInit() {
     this.compradorForm = this.returnCompradorForm();
+    this.load();
+  }
+
+  load(){
+    // this.service.listCompradores().subscribe((res: any)=>{
+    //   console.log('RESPUESTA: ',res.body);
+    // });
   }
 
   returnCompradorForm(): FormGroup {

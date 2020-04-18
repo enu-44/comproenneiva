@@ -4,6 +4,8 @@ import { MapaUbicacionService } from '../../mapa-ubicacion/mapa-ubicacion.servic
 import { MapaUbicacionComponent } from '../../mapa-ubicacion/mapa-ubicacion.component';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HorariosComponent } from '../horarios/horarios.component'
 
 export interface DialogData {
   animal: string;
@@ -36,12 +38,30 @@ export class SedesFormComponent implements OnInit {
     {value: 3, text: 'Opción 3'}
   ];
 
-  constructor(public dialog: MatDialog, public serviceUbicacion: MapaUbicacionService) { }
+  sedesForm: FormGroup;
+
+  constructor(public dialog: MatDialog, 
+    public serviceUbicacion: MapaUbicacionService,
+    private formBuilder: FormBuilder) { }
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
   ngOnInit() {
+    this.sedesForm = this.returnSedesForm();
     this.dataSource.paginator = this.paginator;
+  }
+
+  returnSedesForm(): FormGroup {
+    return this.formBuilder.group({
+      departamento: [null, Validators.required],
+      municipio: [null, Validators.required],
+      ubicacion: [{value: null, disabled: true}, [Validators.pattern('[a-zA-Z ]{2,254}')]],
+      direccion: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      telefono: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
+      telefonoOpcional: [null, Validators.pattern('^[0-9]*$')],
+      servicios: [null]
+    })
   }
 
   selectTab(){
@@ -63,6 +83,18 @@ export class SedesFormComponent implements OnInit {
         // dialogRef.close();
       }
     })
+  }
+
+  openDialogHorario(): void {
+    const dialogRef = this.dialog.open(HorariosComponent, {
+      width: '800px'
+    });
+  }
+
+  resultForm(sedesForm: FormGroup){
+    let event = sedesForm.getRawValue();
+    console.log('EVENT'+sedesForm);
+    console.log(this.sedesForm.value)
   }
 
 }

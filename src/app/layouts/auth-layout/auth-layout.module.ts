@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
+import { CommonModule } from '@angular/common';
 import { AuthLayoutRoutes } from "./auth-layout.routing";
 import { LoginComponent } from "../../pages/examples/login/login.component";
 import { ConfirmacionComponent } from "../../pages/examples/confirmacion/confirmacion.component";
@@ -33,6 +33,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LockComponent,
     RegisterComponent,
     ConfirmacionComponent
+  ],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
   ]
 })
 

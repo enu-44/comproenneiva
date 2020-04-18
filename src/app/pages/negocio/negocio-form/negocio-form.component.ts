@@ -3,6 +3,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { MapaUbicacionService } from '../../mapa-ubicacion/mapa-ubicacion.service';
 import { MapaUbicacionComponent } from '../../mapa-ubicacion/mapa-ubicacion.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NegocioService } from '../negocio.service';
+import { SharedService } from 'src/app/shared/shared.service';
 
 
 export interface DialogData {
@@ -40,7 +42,8 @@ export class NegocioFormComponent implements OnInit {
 
   constructor(public dialog: MatDialog, 
     public serviceUbicacion: MapaUbicacionService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private service: SharedService) { }
 
   isLinear = false;
   dias: any [] = [];
@@ -48,6 +51,13 @@ export class NegocioFormComponent implements OnInit {
 
   ngOnInit() {
     this.empresaForm = this.returnEmpresaForm();
+    this.load();
+  }
+
+  load(){
+    this.service.listFotografias().subscribe((res:any)=>{
+      console.log(res.body);
+    });
   }
 
   returnEmpresaForm(): FormGroup {
