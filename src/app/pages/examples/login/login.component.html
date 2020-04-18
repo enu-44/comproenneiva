@@ -11,32 +11,30 @@
           </div>
         </div>
         <div class="px-lg-5 py-lg-2">
-          <form role="form">
-            <div class="form-group mb-3" [ngClass]="{ focused: focus === true }" >
+          <form  [formGroup]="loginForm">
+            <div class="form-group mb-3"  >
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input
+                <input formControlName="username" name="username" 
                   class="form-control"
                   placeholder="Email"
-                  type="email"
-                  (focus)="focus = true"
-                  (blur)="focus = false"
+                  type="string"
+                  
                 />
               </div>
             </div>
-            <div class="form-group" [ngClass]="{ focused: focus1 === true }">
+            <div class="form-group" >
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input
+                <input formControlName="password" name="password"    
                   class="form-control"
                   placeholder="Password"
                   [type]="verPass ? 'text' : 'password'"
-                  (focus)="focus1 = true"
-                  (blur)="focus1 = false"
+                 
                 />
                 <div class="input-group-prepend">
                   <a class="input-group-text" href="javascript:void(0)" style="color: #172b4d !important" (click)="verPass = !verPass">
@@ -47,7 +45,7 @@
             </div>
             <div class="row mt-2 px-3">
               <div class="col-4 custom-control custom-control-alternative custom-checkbox">
-                <input
+                <input formControlName="rememberMe" name="rememberMe" 
                   class="custom-control-input"
                   id="customCheckLogin"
                   type="checkbox"
@@ -65,7 +63,7 @@
             </div>
 
             <div class="text-center w-100">
-              <button type="button" class="btn btn-outline-success my-4 w-100">
+              <button type="button" (click)="login(loginForm)" class="btn btn-outline-success my-4 w-100">
                 Iniciar sesión
               </button>
             </div>

@@ -9,7 +9,7 @@ import { PresentationComponent } from "./pages/presentation/presentation.compone
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     redirectTo: "presentation",
     pathMatch: "full"
   },
