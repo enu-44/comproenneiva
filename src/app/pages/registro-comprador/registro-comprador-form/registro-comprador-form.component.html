@@ -13,8 +13,8 @@
                       <div class=" form-group">
                           <mat-form-field class="example-full-width" appearance="outline">
                               <mat-label>Seleccione Tipo de documento</mat-label>
-                              <mat-select formControlName="tipoDocumento" name="tipoDocumento">
-                                  <mat-option *ngFor="let opcion of opt" [value]="opcion.value">
+                              <mat-select formControlName="tipoDocumentoId" name="tipoDocumentoId">
+                                  <mat-option *ngFor="let opcion of doc" [value]="opcion.value">
                                       {{opcion.text}}
                                   </mat-option>
                               </mat-select>
@@ -27,7 +27,7 @@
                           <div class=" input-group input-group-merge">
                               <mat-form-field class="example-full-width" appearance="outline">
                                   <mat-label>Número de identificación</mat-label>
-                                  <input matInput placeholder="Ej. 123456789" formControlName="noDocumento" name="noDocumento">
+                                  <input matInput placeholder="Ej. 123456789" formControlName="numDocumento" name="numDocumento">
                               </mat-form-field>
                           </div>
                       </div>
@@ -40,7 +40,7 @@
                           <div class=" input-group input-group-merge">
                               <mat-form-field class="example-full-width" appearance="outline">
                                   <mat-label>Primer nombre</mat-label>
-                                  <input matInput placeholder="Ej. Juan" formControlName="primerNombre" name="primerNombre">
+                                  <input matInput placeholder="Ej. Juan" formControlName="firstName" name="firstName">
                               </mat-form-field>
                           </div>
                       </div>
@@ -63,7 +63,7 @@
                           <div class=" input-group input-group-merge">
                               <mat-form-field class="example-full-width" appearance="outline">
                                   <mat-label>Primer apellido</mat-label>
-                                  <input matInput placeholder="Ej. Pérez" formControlName="primerApellido" name="primerApellido">
+                                  <input matInput placeholder="Ej. Pérez" formControlName="lastName" name="lastName">
                               </mat-form-field>
                           </div>
                       </div>
@@ -85,8 +85,8 @@
                       <div class=" form-group">
                           <mat-form-field class="example-full-width" appearance="outline">
                               <mat-label>Seleccione Departamento</mat-label>
-                              <mat-select formControlName="departamento" name="departamento">
-                                  <mat-option *ngFor="let opcion of opt" [value]="opcion.value">
+                              <mat-select>
+                                  <mat-option *ngFor="let opcion of dep" [value]="opcion.value">
                                       {{opcion.text}}
                                   </mat-option>
                               </mat-select>
@@ -98,8 +98,8 @@
                       <div class=" form-group">
                           <mat-form-field class="example-full-width" appearance="outline">
                               <mat-label>Seleccione Municipio</mat-label>
-                              <mat-select formControlName="municipio" name="municipio">
-                                  <mat-option *ngFor="let opcion of opt" [value]="opcion.value">
+                              <mat-select formControlName="municipioId" name="municipioId">
+                                  <mat-option *ngFor="let opcion of muni" [value]="opcion.value">
                                       {{opcion.text}}
                                   </mat-option>
                               </mat-select>
@@ -113,7 +113,7 @@
                           <div class=" input-group input-group-merge">
                               <mat-form-field class="example-full-width" (click)="openDialog()" appearance="outline">
                                   <mat-label>Ubicación GPS</mat-label>
-                                  <input matInput [disabled]="true" formControlName="ubicacion" name="ubicacion"
+                                  <input matInput [disabled]="true"
                                       value="{{coords}}">
                                       <mat-icon matSuffix>room</mat-icon>
                               </mat-form-field>
@@ -138,7 +138,7 @@
                           <div class=" input-group input-group-merge">
                               <mat-form-field class="example-full-width" appearance="outline">
                                   <mat-label>Correo electrónico</mat-label>
-                                  <input matInput placeholder="Ej. example@example.com" formControlName="email" name="email">
+                                  <input matInput placeholder="Ej. example@example.com" formControlName="email" name="email" (keyup)="onKey($event)">
                               </mat-form-field>
                           </div>
                       </div>
@@ -149,7 +149,7 @@
                           <div class=" input-group input-group-merge">
                               <mat-form-field class="example-full-width" appearance="outline">
                                   <mat-label>Celular</mat-label>
-                                  <input matInput placeholder="Ej. 3111111111" formControlName="telefono" name="telefono">
+                                  <input matInput placeholder="Ej. 3111111111" formControlName="celular1" name="celular1">
                               </mat-form-field>
                           </div>
                       </div>
@@ -159,7 +159,7 @@
                           <div class=" input-group input-group-merge">
                               <mat-form-field class="example-full-width" appearance="outline">
                                   <mat-label>Celular (Opcional)</mat-label>
-                                  <input matInput placeholder="Ej. 3111111111" formControlName="telefonoOpcional" name="telefonoOpcional">
+                                  <input matInput placeholder="Ej. 3111111111" formControlName="celular2" name="celular2">
                               </mat-form-field>
                           </div>
                       </div>
@@ -167,12 +167,12 @@
               </div>
               <div class="row">
                   <div class="col-md-12">
-                      <mat-slide-toggle formControlName="terminos" name="terminos"><a>Acepto términos y condiciones</a></mat-slide-toggle>
+                      <mat-slide-toggle ><a>Acepto términos y condiciones</a></mat-slide-toggle>
                   </div>
               </div><br>
               <div class="row">
                 <div class="col-md-12">
-                  <mat-slide-toggle formControlName="autorizo" name="autorizo">Autorizo a comproenneiva.com, para que recolecte mis datos
+                  <mat-slide-toggle >Autorizo a comproenneiva.com, para que recolecte mis datos
                       personales y los conserve dentro de su base de datos</mat-slide-toggle>
                 </div>
               </div>
