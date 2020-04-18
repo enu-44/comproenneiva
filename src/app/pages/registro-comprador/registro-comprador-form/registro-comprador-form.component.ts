@@ -4,7 +4,7 @@ import { MapaUbicacionComponent } from '../../mapa-ubicacion/mapa-ubicacion.comp
 import { MapaUbicacionService } from '../../mapa-ubicacion/mapa-ubicacion.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { RegistroCompradorService } from '../registro-comprador.service';
-
+import Swal from 'sweetalert2';
 
 export interface DialogData {
   animal: string;
@@ -112,9 +112,29 @@ export class RegistroCompradorFormComponent implements OnInit {
     event.login = event.email;
     console.log(this.compradorForm)
     this.service.createComprador(event).subscribe((res:any)=>{
-      console.log('CREADO EXITOSAMENTE')
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+  
+      Toast.fire({
+        type: 'success',
+        title: 'Usuario creado exitosamente'
+      })
     },(error:any)=>{
-      console.log('ERROR',error)
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 4000
+      });
+      
+      Toast.fire({
+        type: 'error',
+        title: `Ha ocurrido un error!`
+      })
     })
   }
 
