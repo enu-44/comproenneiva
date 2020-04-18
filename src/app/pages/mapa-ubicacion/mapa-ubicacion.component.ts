@@ -32,18 +32,22 @@ export class MapaUbicacionComponent implements OnInit {
 		  draggable: true
     }
     
-    labelOptions = {
+   /*  labelOptions = {
       color: '#ee4646',
       fontFamily: '',
       fontSize: '10px',
       fontWeight: 'bold',
       letterSpacing:'0.5px',
       text: 'Plan Pagado/No pagado'
-    }
+    } */
 
   constructor(public serviceUbicacion: MapaUbicacionService) { }
 
   ngOnInit() {
+    this.serviceUbicacion.puntoSeleccionado.next({
+      'lat':this.ubicacionSeleccionada.lat,
+      'lng':this.ubicacionSeleccionada.lng
+    }) 
   }
 
   clickedMarker(label: string, index: number) {
@@ -53,10 +57,12 @@ export class MapaUbicacionComponent implements OnInit {
   placeMarker($event){
     this.ubicacionSeleccionada.lat= $event.coords.lat;
     this.ubicacionSeleccionada.lng= $event.coords.lng;
+    // this.serviceUbicacion.updateUbicacion(this.ubicacionSeleccionada)
+
     this.serviceUbicacion.puntoSeleccionado.next({
       'lat':$event.coords.lat,
       'lng':$event.coords.lng
-    })
+    }) 
   }
 
   markerDragEnd(m: marker, $event: MouseEvent) {

@@ -6,11 +6,13 @@
   [zoomControl]="false"
   (mapClick)="placeMarker($event)">
 
+
+ <!--  [label]="labelOptions" -->
   <agm-marker 
       (markerClick)="clickedMarker(ubicacionSeleccionada.label)"
       [latitude]="ubicacionSeleccionada.lat"
       [longitude]="ubicacionSeleccionada.lng"
-      [label]="labelOptions"
+      
       [markerDraggable]="ubicacionSeleccionada.draggable"
       (dragEnd)="markerDragEnd(ubicacionSeleccionada, $event)">
     <agm-info-window>

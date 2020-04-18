@@ -94,8 +94,8 @@ export class RegistroCompradorFormComponent implements OnInit {
     });
 
     this.serviceUbicacion.puntoSeleccionado.subscribe((value:any)=> {
-      if(value!=null){
-        this.coords = value.lat+' - '+value.lng;
+      if(value){
+        this.coords = value.lat+' / '+value.lng;
         this.lat = value.lat;
         this.lng = value.lng;
         // dialogRef.close();
