@@ -18,6 +18,8 @@ import { ComponentsModule } from "./components/components.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MapaUbicacionComponent } from './pages/mapa-ubicacion/mapa-ubicacion.component';
 import { AgmCoreModule } from '@agm/core';
+import { JhipsterSharedModule } from './shared/shared.module';
+import { JhipsterCoreModule } from './core/core.module';
 
 @NgModule({
   imports: [
@@ -33,6 +35,10 @@ import { AgmCoreModule } from '@agm/core';
     TagInputModule,
     PresentationModule,
     NgbModule,
+
+    JhipsterSharedModule,
+    JhipsterCoreModule,
+
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyARIZgEvVm-isf97lDF5HmAwom6N7ftFg8'
     })
