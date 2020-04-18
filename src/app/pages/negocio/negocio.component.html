@@ -9,14 +9,12 @@
     </span>
   
     <div class="w-100 d-flex align-items-end justify-content-end">
-      <div class="w-70" [ngClass]="{ focused: focus === true }" >
+      <div class="w-70">
         <div class="input-group input-group-alternative">
           <input
             class="form-control"
             placeholder="Buscar..."
             type="text"
-            (focus)="focus = true"
-            (blur)="focus = false"
           />
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-search"></i></span>

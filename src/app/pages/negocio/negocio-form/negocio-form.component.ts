@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MapaUbicacionService } from '../../mapa-ubicacion/mapa-ubicacion.service';
 import { MapaUbicacionComponent } from '../../mapa-ubicacion/mapa-ubicacion.component';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 export interface DialogData {
@@ -29,93 +30,51 @@ export class NegocioFormComponent implements OnInit {
     {value: 3, text: 'Opción 3'}
   ];
 
-  constructor(public dialog: MatDialog, public serviceUbicacion: MapaUbicacionService) { }
+  tp: Opciones[] = [
+    {value: 1, text: 'Natural'},
+    {value: 2, text: 'Jurídica'}
+  ];
+  verInput: boolean = true;
+  opcionSelected: any = 0;
+  empresaForm: FormGroup;
+
+  constructor(public dialog: MatDialog, 
+    public serviceUbicacion: MapaUbicacionService,
+    private formBuilder: FormBuilder) { }
 
   isLinear = false;
   dias: any [] = [];
   time = {hour: 13, minute: 30};
 
   ngOnInit() {
-    // var selectr: any = document.getElementById("selectr");
-    // var options = {};
-    // var optionsMultiple = { multiple: true };
-    // var selectrmultiple: any = document.getElementById("selectr-multiple");
-
-    // this.firstFormGroup = this._formBuilder.group({
-    //   firstCtrl: ['', Validators.required]
-    // });
-    // this.secondFormGroup = this._formBuilder.group({
-    //   secondCtrl: ['', Validators.required]
-    // });
-
-    this.dias.push(
-      {
-        nombre: 'lunes',
-        jornadas: [
-          {
-            horaInicio: { hour: 8, minute: 0 },
-            horaFin: { hour: 11, minute: 59 }
-          },
-          {
-            horaInicio: { hour: 0, minute: 0 },
-            horaFin: { hour: 0, minute: 0 }
-          },
-          {
-            horaInicio: { hour: 19, minute: 0 },
-            horaFin: { hour: 3, minute: 0 }
-          }
-        ]
-      },
-      {
-        nombre: 'martes',
-        jornadas: [
-          {
-            horaInicio: { hour: 8, minute: 0 },
-            horaFin: { hour: 11, minute: 59 }
-          },
-          {
-            horaInicio: { hour: 0, minute: 0 },
-            horaFin: { hour: 0, minute: 0 }
-          },
-          {
-            horaInicio: { hour: 19, minute: 0 },
-            horaFin: { hour: 3, minute: 0 }
-          }
-        ]
-      },
-      {
-        nombre: 'miercoles',
-        jornadas: [
-          {
-            horaInicio: { hour: 8, minute: 0 },
-            horaFin: { hour: 11, minute: 59 }
-          },
-          {
-            horaInicio: { hour: 0, minute: 0 },
-            horaFin: { hour: 0, minute: 0 }
-          },
-          {
-            horaInicio: { hour: 19, minute: 0 },
-            horaFin: { hour: 3, minute: 0 }
-          }
-        ]
-      }
-    )
-
+    this.empresaForm = this.returnEmpresaForm();
   }
 
-  eliminarHora(indexDia: number, indexJornada: number) {
-    this.dias[indexDia].jornadas.splice(indexJornada, 1)
+  returnEmpresaForm(): FormGroup {
+    return this.formBuilder.group({
+      tipoEstablecimiento: [null, Validators.required],
+      nombre: [null, [Validators.required, Validators.pattern('[a-zA-Z ]{2,254}')]],
+      tipoDocumento: [null, Validators.required],
+      noDocumento: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
+      tipoPersona: [null, Validators.required],
+      nombreCompleto: [null, Validators.pattern('[a-zA-Z ]{2,254}')],
+      razonSocial: [null, Validators.pattern('[a-zA-Z ]{2,254}')],
+      departamento: [null, Validators.required],
+      municipio: [null, Validators.required],
+      ubicacion: [{value: null, disabled: true}, [Validators.pattern('[a-zA-Z ]{2,254}')]],
+      direccion: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      sitioWeb: [null, Validators.pattern('[a-zA-Z ]{2,254}')],
+      telefono: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
+      telefonoOpcional: [null, Validators.pattern('^[0-9]*$')],
+      camaraComercio: [null, Validators.required],
+      noSedes: [null, Validators.pattern('^[0-9]*$')],
+      servicios: [null, Validators.required],
+      terminos: [null, Validators.required],
+      autorizo: [null]
+    })
   }
 
-  agregarJornada(indexDia) {
-    this.dias[indexDia].jornadas.push(
-      {
-        horaInicio: { hour: 0, minute: 0 },
-        horaFin: { hour: 0, minute: 0 }
-      }
-    )
-  }
   // onSliderChange(selectedValues: number[]) {
   //   console.log('VALOR: ', selectedValues);
   // }
@@ -135,6 +94,15 @@ export class NegocioFormComponent implements OnInit {
         // dialogRef.close();
       }
     })
+  }
+
+  select(opcion){
+    this.verInput = opcion===1?true:false;
+    this.opcionSelected = opcion;
+  }
+
+  crearNegocio(empresaForm: FormGroup){
+    console.log('DATA: ', this.empresaForm);
   }
 
 }

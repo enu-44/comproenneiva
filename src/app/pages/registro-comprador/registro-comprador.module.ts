@@ -10,6 +10,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 // import { ComponentsModule } from '../components/components.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [RegistroCompradorFormComponent],
@@ -22,7 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     MatSlideToggleModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ]
 })
 export class RegistroCompradorModule { }
