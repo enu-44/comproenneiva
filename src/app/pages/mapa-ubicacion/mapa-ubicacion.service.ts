@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MapaUbicacionService {
 
-  puntoSeleccionado = new BehaviorSubject<any>(null);
+  puntoSeleccionado = new BehaviorSubject<any>({});
 
   constructor() { }
 }

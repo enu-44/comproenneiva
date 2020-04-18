@@ -37,9 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatFormFieldModule,
+    ReactiveFormsModule
   ]
 })
 
