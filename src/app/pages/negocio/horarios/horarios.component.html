@@ -31,15 +31,21 @@
             <tr *ngFor="let jornada of dia.jornadas; let indexJornada = index">
               <th scope="row">
                 <div class="text-center">
-                  {{ indexJornada + 1 }}
+                  <span>{{ indexJornada + 1 }}</span>
                 </div>
               </th>
 
               <td class="budget">
-                <ngb-timepicker [(ngModel)]="jornada.horaInicio" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
+                <ngb-timepicker [(ngModel)]="jornada.horaInicio" [meridian]="true" [spinners]="false" [minuteStep]="1" (change)="rangoHorasVaido(indexDia, indexJornada)"></ngb-timepicker>
+                <div *ngIf="!jornada.valida" class="small form-text text-danger">
+                  Esta jornada no es valida
+                </div>
               </td>
               <td class="budget">
-                <ngb-timepicker [(ngModel)]="jornada.horaFin" [meridian]="true" [spinners]="false" [minuteStep]="10"></ngb-timepicker>
+                <ngb-timepicker [(ngModel)]="jornada.horaFin" [meridian]="true" [spinners]="false" [minuteStep]="1" (change)="rangoHorasVaido(indexDia, indexJornada)"></ngb-timepicker>
+                <div *ngIf="!jornada.valida" class="small form-text text-danger">
+                  Esta jornada no es valida
+                </div>
               </td>
               <!-- ACCIÓN ELIMINAR -->
               <td class="budget text-center">

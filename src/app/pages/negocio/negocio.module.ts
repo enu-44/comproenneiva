@@ -24,6 +24,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { HorariosComponent } from './horarios/horarios.component';
 // import { ComponentsModule } from '../components/components.module';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HorariosComponent } from './horarios/horarios.component';
     MatExpansionModule,
     MatInputModule,
     MatTabsModule,
+    MatBadgeModule,
     // ComponentsModule,
     // NpnSliderModule,
     RouterModule.forChild(NegocioRoutes),
